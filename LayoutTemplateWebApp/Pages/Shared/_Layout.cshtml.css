@@ -40,10 +40,11 @@ for details on configuring this project to bundle and minify static web assets. 
     padding: 0px 0px 0px 30px;
     position: relative;
     flex: 0 0 auto;
-    background-color: #e7f1ff;
+    background-color: rgba(180, 9, 9, 0.15);
     border-right-width: 3px;
     border-right-style: solid;
     border-color: var(--colorMain);
+    color: black;
 }
 
 .inline-nav-item-nd {

@@ -1,8 +1,8 @@
 
 :root {
     --colorMain: #00A38B;
-    --colorMainRGB: 0, 163, 139;
-    --colorMainTrans: rgba(0, 163, 139, 0.1);
+    --colorMainRGB: 180, 9, 9;
+    --colorMainTrans: rgba(180, 9, 9, 0.15);
     --greyFooter: #F1F1F1;
     --whiteContranst: #F6F6F6;
     --greyFooterRGB: 241,241,241;
@@ -67,7 +67,7 @@ img {
 /* This secction is for color backgrounds*/
 
 .bg-colorMain {
-    --bs-bg-opacity: 1;
+    --bs-bg-opacity: 15;
     background-color: rgba(var(--colorMainRGB), var(--bs-bg-opacity));
 }
 

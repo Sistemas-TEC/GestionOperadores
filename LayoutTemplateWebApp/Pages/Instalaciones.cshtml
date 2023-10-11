@@ -1,7 +1,8 @@
 ﻿@page
-@model LayoutTemplateWebApp.Pages.Option1Model
+@model LayoutTemplateWebApp.Pages.InstalacionesModel
 @{
 }
+
 <style>
     .xy-center{
         width: 100%;
@@ -26,7 +27,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const consultarHorarios = document.getElementById("btnConsultarHorariosOperadores");
+        const consultarHorarios = document.getElementById("btnPrestarInstalacion");
         consultarHorarios.addEventListener("click", function(){
             alert("Click");
         });
@@ -36,13 +37,15 @@
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
-            <li id="btnConsultarHorariosOperadores">Consultar Horarios de Operadores</li>
+            <li id="btnPrestarInstalacion">Prestar Instalación</li>
+            <li id="btnLiberarInstalacion">Liberar Instalación</li>
+            <li id="btnConsultarHorariosInstalaciones">Consultar Horarios Instalaciones</li>
         </ul>
     </div>
     <div class="xy-center">
         <h1>
-            Bienvenido al sistema de funciones para operadores<br/>
-            Seleccione la funcionalidad que desees usar 
+            Bienvenido a la sección de instalaciones<br/>
+            Seleccione la funcionalidad que desee utilizar en el menú de la izquierda 
         </h1>
     </div>
 </div>
