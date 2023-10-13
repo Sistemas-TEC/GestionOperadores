@@ -1,0 +1,46 @@
+﻿@page "/Operadores/Horarios-Operadores"
+@model LayoutTemplateWebApp.Pages.PagesOperador.vtn_operador_horarios_operadoresModel
+@{
+}
+
+<style>
+    .center-main-button{
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const consultarHorarios = document.getElementById("btnConsultarHorariosOperadores");
+        consultarHorarios.addEventListener("click", function () {
+            window.location.assign("/Operadores/Horarios-Operadores");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const consultarHorarios = document.getElementById("btnCerrar");
+        consultarHorarios.addEventListener("click", function () {
+            window.location.assign("/Operadores/");
+            }
+        });
+        
+    });
+</script>
+
+<div class="all-container">
+    <div class="sidebar-container">
+        <ul>
+            <li id="btnConsultarHorariosOperadores">Consultar Horarios de Operadores</li>
+        </ul>
+    </div>
+    <div>
+        <div class="main-info-container">
+            <button class="close-button" id="btnCerrar">X</button>
+            <h1>Horarios de operadores</h1>
+            <div class="center-main-button">
+                <button class="main-button">Seleccionar oficina</button>
+            </div>
+            <h4>Falta poner tabla de horario y hacer el dropdown con el boton de seleccionar</h4>
+        </div>
+    </div>
+</div>

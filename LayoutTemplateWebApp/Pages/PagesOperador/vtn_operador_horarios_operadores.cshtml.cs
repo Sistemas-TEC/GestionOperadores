@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace LayoutTemplateWebApp.Pages
+namespace LayoutTemplateWebApp.Pages.PagesOperador
 {
-    public class Option1Model : PageModel
+    public class vtn_operador_horarios_operadoresModel : PageModel
     {
         public void OnGet()
         {

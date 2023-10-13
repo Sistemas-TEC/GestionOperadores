@@ -1,0 +1,40 @@
+﻿.close-button {
+    width: 54px;
+    height: 54px;
+    border-radius: 100%;
+    background-color: rgba(9, 180, 180, 0.35);
+    border: 1px solid #000;
+    color: #000;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 36px */
+    position: absolute;
+    right: 22px;
+    top: 22px;
+}
+
+.close-button:active{
+    font-size: 22px;
+}
+
+.main-button {
+    width: 280px;
+    height: 56px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: rgba(9, 180, 180, 0.35);
+    color: #000;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 36px */
+}
+
+.main-button:active{
+    font-size: 22px;
+}
