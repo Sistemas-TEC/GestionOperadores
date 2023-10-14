@@ -20,7 +20,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-colorMainTrans">
             <div class="container-fluid align-middle">
                 <div class="align-middle">
-                    <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <a class="navbar-brand header-title-font" asp-area="" asp-page="/Index">
                         @* //This could be the link to the inicial app page *@
                         <i class="bi bi-mortarboard-fill"></i>
                         OperadoresTEC
@@ -34,7 +34,7 @@
                         var option3IsActive = Context.Request.Path.Value.Contains("/Option3");
                     }
 
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 header-option-font">
                         <li class="nav-item">
                             <a class="nav-link @(option2IsActive ? "active" : "")" asp-area="" asp-page="/Instalaciones">Instalaciones</a>
                         </li>
@@ -54,30 +54,14 @@
                     <i class="bi bi-person"></i>
                 </div>
 
-
-
             </div>
         </nav>
     </header>
        
 
     <div class="page d-flex flex-row bg-grayContrast">
-        <!--<aside class="site-bar bg-white">
-            <ul class="d-flex flex-column gap-3 px-0 py-2">
-                <li class="py-2 inline-nav-item-nd " id="option1Operadores">
-                    <i class="bi bi-people-fill"></i>
-                    <a class="nav-link @(option2IsActive ? "active" : "")" asp-area="" asp-page="/Option2">Consultar Horarios de Operadores</a>
-                </li>
-                <li class="py-2 bg-footer inline-nav-item-nd" id="option1Instalaciones">
-                    <i class="bi bi-people-fill"></i>
-                    <a class="nav-link @(option3IsActive ? "active" : "")" asp-area="" asp-page="/Option3">Opciones Instalaciones</a>
-                </li>
-            </ul>
-           
-        </aside>-->
         <div class="content-page w-100">
             <main role="main" class="pb-3">
-
 
                 @RenderBody()
             </main>

@@ -1,9 +1,19 @@
 ﻿:root {
-    --font-size-main-info-container-title: 36px;
-    --line-height-main-info-container-title: 54px;
+    --font-size-main-info-container-title: 36px; /*32px*/
+    --line-height-main-info-container-title: 54px;/*54px*/
 
-    --font-size-xy-center: 32px;
-    --line-height-xy-center: 48px;
+    --font-size-xy-center: 32px;/*32px*/
+    --line-height-xy-center: 48px;/*48px*/
+
+    --font-size-sidebar-li: 20px; /*20px*/
+    --line-height-sidebar-li: 30px; /*30px*/
+
+    --font-size-main-button: 24px;
+    --line-heigth-main-button: 36px;
+
+    /*Colors*/
+    --main-info-container-background-color: rgba(180,9,9,0.20);
+    --h1-font-color: rgba(0,0,0,0.75);
 }
 
 .xy-center {
@@ -17,7 +27,7 @@
 .xy-center h1 {
     width: fit-content;
     height: fit-content;
-    color: rgba(0, 0, 0, 0.75);
+    color: var(--h1-font-color);
     text-align: center;
     font-family: Roboto;
     font-size: var(--font-size-xy-center);
@@ -31,16 +41,14 @@
     height: 576px;
     border-radius: 16px;
     border: 1px solid #000;
-    background-color: rgba(180, 9, 9, 0.20);
+    background-color: var(--main-info-container-background-color);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-left: 10.5%;
-    margin-top: 12%;
     padding: 22px;
     position: relative;
-
 }
 
 .main-info-container h1 {
+    width: 100%;
     color: #000;
     text-align: center;
     font-family: Roboto;

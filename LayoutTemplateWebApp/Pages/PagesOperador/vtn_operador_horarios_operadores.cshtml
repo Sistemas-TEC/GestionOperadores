@@ -18,13 +18,12 @@
         });
     });
     document.addEventListener("DOMContentLoaded", function () {
-        const consultarHorarios = document.getElementById("btnCerrar");
-        consultarHorarios.addEventListener("click", function () {
+        const cerrar = document.getElementById("btnCerrar");
+        cerrar.addEventListener("click", function () {
             window.location.assign("/Operadores/");
-            }
-        });
-        
+        })
     });
+    
 </script>
 
 <div class="all-container">
@@ -33,7 +32,7 @@
             <li id="btnConsultarHorariosOperadores">Consultar Horarios de Operadores</li>
         </ul>
     </div>
-    <div>
+    <div class="xy-center">
         <div class="main-info-container">
             <button class="close-button" id="btnCerrar">X</button>
             <h1>Horarios de operadores</h1>
