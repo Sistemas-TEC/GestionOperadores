@@ -10,12 +10,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentSidebarFontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size-sidebar-li');
         const currentMainButtonFontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size-main-button');
         const currentMainInfoContainerH3FontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size-main-info-container-h3');
+        const currentHeaderOptionFontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size-header-option');
+        const currentHeaderTitleFontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size-header-title');
 
         const newMainInfoContainerFontSize = parseInt(currentContainerFontSize) + 4;
         const newXYCenterContainerFontSize = parseInt(currentXYCenterFontSize) + 4;
         const newSidebarFontSize = parseInt(currentSidebarFontSize) + 4;
         const newMainButtonFontSize = parseInt(currentMainButtonFontSize) + 4;
         const newMainInfoContainerH3FontSize = parseInt(currentMainInfoContainerH3FontSize) + 4;
+        const newHeaderOptionFontSize = parseInt(currentHeaderOptionFontSize) + 2;
+        const newHeaderTitleFontSize = parseInt(currentHeaderTitleFontSize) + 2;
 
         if (newMainInfoContainerFontSize <= 44) {
             document.documentElement.style.setProperty('--font-size-main-info-container-title', `${newMainInfoContainerFontSize}px`);
@@ -23,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.documentElement.style.setProperty('--font-size-sidebar-li', `${newSidebarFontSize}px`);
             document.documentElement.style.setProperty('--font-size-main-button', `${newMainButtonFontSize}px`);
             document.documentElement.style.setProperty('--font-size-main-info-container-h3', `${newMainInfoContainerH3FontSize}px`);
+            document.documentElement.style.setProperty('--font-size-header-option', `${newHeaderOptionFontSize}px`);
+            document.documentElement.style.setProperty('--font-size-header-title', `${newHeaderTitleFontSize}px`);
         }
     });
 });
@@ -35,12 +41,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const currentSidebarFontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size-sidebar-li');
         const currentMainButtonFontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size-main-button');
         const currentMainInfoContainerH3FontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size-main-info-container-h3');
+        const currentHeaderOptionFontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size-header-option');
+        const currentHeaderTitleFontSize = getComputedStyle(document.documentElement).getPropertyValue('--font-size-header-title');
 
         const newMainInfoContainerFontSize = parseInt(currentContainerFontSize) - 4;
         const newXYCenterContainerFontSize = parseInt(currentXYCenterFontSize) - 4;
         const newSidebarFontSize = parseInt(currentSidebarFontSize) - 4;
         const newMainButtonFontSize = parseInt(currentMainButtonFontSize) - 4;
         const newMainInfoContainerH3FontSize = parseInt(currentMainInfoContainerH3FontSize) - 4;
+        const newHeaderOptionFontSize = parseInt(currentHeaderOptionFontSize) - 2;
+        const newHeaderTitleFontSize = parseInt(currentHeaderTitleFontSize) - 2;
 
         if (newMainInfoContainerFontSize >= 28) {
             document.documentElement.style.setProperty('--font-size-main-info-container-title', `${newMainInfoContainerFontSize}px`);
@@ -49,7 +59,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.documentElement.style.setProperty('--font-size-main-button', `${newMainButtonFontSize}px`);
             document.documentElement.style.setProperty('--font-size-main-info-container-h3', `${newMainInfoContainerH3FontSize}px`);
 
-            document.documentElement.style.setProperty('--line-height-sidebar-li', `${newSidebarFontSize+10}px`);
+            document.documentElement.style.setProperty('--line-height-sidebar-li', `${newSidebarFontSize + 10}px`);
+            document.documentElement.style.setProperty('--font-size-header-option', `${newHeaderOptionFontSize}px`);
+            document.documentElement.style.setProperty('--font-size-header-title', `${newHeaderTitleFontSize}px`);
         }
     });
 });

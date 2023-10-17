@@ -11,8 +11,16 @@
 
     --font-size-main-button: 24px;
     --line-heigth-main-button: 36px;
+
     --font-size-main-info-container-h3: 24px;
     --line-height-main-info-container-h3: 28px;
+
+    --font-size-header-option: 16px;
+    --line-height-header-option: 24px;
+
+    --font-size-header-title: 20px;
+    --line-height-header-title: 30px;
+
     /*Colors*/
     --header-background-color: rgba(180,9,9,0.1);
     --header-font-color: rgba(0,0,0,1);
@@ -29,6 +37,11 @@
 
     /*Container sizes*/
     --main-info-container-input-height: 54px;
+}
+
+.content-page{
+    background-color: var(--background-color-1);
+    color: var(--input-font-color);
 }
 
 .xy-center {

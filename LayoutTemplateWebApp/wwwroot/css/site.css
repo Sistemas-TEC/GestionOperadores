@@ -103,6 +103,8 @@ img {
 .nav-link {
     color: var(--header-font-color) !important; /* This important would be unnecessary, but if we remove doesn't work, Why ? I don't know but I don't care*/
     font-weight: lighter;
+    font-size: var(--font-size-header-option);
+    line-height: var(--line-height-header-option);
 }
 
 .active {
@@ -130,6 +132,15 @@ img {
     color: var(--h1-font-color);
 }
 
+header {
+    border-bottom: 1px solid var(--h1-font-color);
+}
+
 .navbar-light .navbar-brand{
     color: var(--h1-font-color);
+}
+
+.navbar-brand{
+    font-size: var(--font-size-header-title);
+    line-height: var(--line-heigh-header-title);
 }

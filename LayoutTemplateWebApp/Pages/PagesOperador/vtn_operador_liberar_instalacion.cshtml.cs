@@ -7,6 +7,6 @@ namespace LayoutTemplateWebApp.Pages.PagesOperador
     {
         public void OnGet()
         {
-        }
+        }   
     }
 }
