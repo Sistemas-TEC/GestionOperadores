@@ -1,12 +1,12 @@
-﻿@page "/Operadores/Equipos/Prestar-Equipo"
-@model LayoutTemplateWebApp.Pages.PagesOperador.vtn_operador_prestar_equipoModel
+﻿@page "/Operadores/Equipos/Liberar-Equipo"
+@model LayoutTemplateWebApp.Pages.PagesOperador.vtn_operador_liberar_equipoModel
 @{
 }
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const consultarHorarios = document.getElementById("btnPrestarEquipo");
-        consultarHorarios.addEventListener("click", function(){
+        consultarHorarios.addEventListener("click", function () {
             window.location.assign("/Operadores/Equipos/Prestar-Equipo");
         });
     });
@@ -23,7 +23,7 @@
         });
     });
     document.addEventListener("DOMContentLoaded", function () {
-        const consultarHorarios = document.getElementById("btnCerrar");
+            const consultarHorarios = document.getElementById("btnCerrar");
         consultarHorarios.addEventListener("click", function () {
             window.location.assign("/Equipo");
         });
@@ -45,40 +45,34 @@
         </ul>
     </div>
     <div class="xy-center">
-       <div class="main-info-container">
+        <div class="main-info-container">
             <button class="close-button" id="btnCerrar">X</button>
-            <h1>Prestar equipo</h1>
-            <div class="center-form parallel-container">
+            <h1>Liberar equipo</h1>
+            <div class="parallel-container center-form">
                 <div class="small-input">
                     <h3>Fecha</h3>
                     <input type="date"/>
                 </div>
                 <div class="small-input">
                     <h3>Equipo</h3>
-                    <select name="equipo" id="equipo" class="big-input">
+                    <select name="equipo" id="equipo">
                         @foreach (var equipo in Model.lista_equipos)
                         {
                             <option value="@equipo.id">@equipo.descripcion</option>
                         }
                     </select>
                 </div>
-                
             </div>
-            <div class="center-form parallel-container">
+            <div class="parallel-container center-form">
                 <div class="small-input">
-                    <h3>Hora de entrada</h3>
+                    <h3>Hora de inicio</h3>
                     <input type="time" />
                 </div>
                 <div class="small-input">
-                    <h3>Hora de salida</h3>
-                    <input type="time"/> 
+                    <h3>Hora de fin</h3>
+                    <input type="time" />
                 </div>
             </div>
-            <div class="center-form" style="margin-top:20px;">
-                <h3>Identificación del responsable</h3>
-                <input type="number" placeholder="Inserte la identificación del responsable" class="big-input" />
-            </div>
-
             <div class="parallel-container center-form">
                 <button class="main-button">
                     Agregar
@@ -87,12 +81,12 @@
                     Cancelar
                 </button>
             </div>
-       </div>
+        </div>
     </div>
 </div>
 
 <style>
-    .main-info-container{
+    .main-info-container {
         height: auto;
     }
 </style>
