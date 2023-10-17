@@ -1,27 +1,12 @@
-﻿@page
-@model LayoutTemplateWebApp.Pages.InstalacionesModel
+﻿@page "/Operadores/Instalaciones/Horarios-Instalaciones"
+@model LayoutTemplateWebApp.Pages.PagesOperador.vtn_operador_horarios_instalacionesModel
 @{
 }
 
 <style>
-    .xy-center{
-        width: 100%;
-        /*height: 100%;*/
+    .center-main-button {
         display: flex;
-        justify-content:center;
-        align-items: center;
-    }
-    .xy-center h1{
-        width: fit-content;
-        height: fit-content;
-
-        color: rgba(0, 0, 0, 0.75);
-        text-align: center;
-        font-family: Roboto;
-        font-size: 32px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 150%;
+        justify-content: center;
     }
 </style>
 
@@ -55,9 +40,13 @@
         </ul>
     </div>
     <div class="xy-center">
-        <h1>
-            Bienvenido a la sección de instalaciones<br/>
-            Seleccione la funcionalidad que desee utilizar en el menú de la izquierda 
-        </h1>
+        <div class="main-info-container">
+            <button class="close-button" id="btnCerrar">X</button>
+            <h1>Horarios de instalaciones</h1>
+            <div class="center-main-button">
+                <button class="main-button">Seleccionar oficina</button>
+            </div>
+            <h4>Falta poner tabla de horario y hacer el dropdown con el boton de seleccionar</h4>
+        </div>
     </div>
 </div>

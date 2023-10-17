@@ -9,6 +9,7 @@
     min-height: 800px;
     border-right: 1px solid var(--main-info-container-background-color);
     padding: 11px 22px;
+    background-color: var(--background-color-1);
 }
 
 .sidebar-container ul {
@@ -21,13 +22,13 @@
     cursor: pointer;
 
     /*font style*/
-    color: #000;
+    color: var(--color-font-sidebar);
     font-family: Roboto;
     font-size: var(--font-size-sidebar-li);
     font-style: normal;
     font-weight: 400;
     line-height: var(--line-height-sidebar-li); /* 36px */
-    /*/font style*/
+    /*font style*/
 }
 
 .sidebar-container ul li:hover{

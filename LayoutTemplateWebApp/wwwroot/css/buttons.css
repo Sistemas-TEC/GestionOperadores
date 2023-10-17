@@ -2,9 +2,10 @@
     width: 54px;
     height: 54px;
     border-radius: 100%;
-    background-color: rgba(9, 180, 180, 0.35);
+    background-color: var(--main-button-background-color);
     border: 1px solid #000;
-    color: #000;
+    border-color: var(--input-border-color);
+    color: var(--main-button-font-color);
     text-align: center;
     font-family: Roboto;
     font-size: 24px;
@@ -26,8 +27,9 @@
     height: 56px;
     border-radius: 10px;
     border: 1px solid #000;
-    background: rgba(9, 180, 180, 0.35);
-    color: #000;
+    border-color: var(--input-border-color);
+    background: var(--main-button-background-color);
+    color: var(--main-button-font-color);
     text-align: center;
     font-family: Roboto;
     font-size: var(--font-size-main-button); /* 24px */
