@@ -59,6 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
     consultarHorarios.addEventListener("click", function () {
         const currentColor = getComputedStyle(document.documentElement).getPropertyValue('--main-info-container-background-color');
         if (currentColor == 'rgba(180,9,9,0.20)') {
+            document.documentElement.style.setProperty('--header-background-color', `rgba(0,0,0,1)`);
+            document.documentElement.style.setProperty('--header-font-color', `rgba(255,255,255,1)`);
             document.documentElement.style.setProperty('--main-info-container-background-color', `rgba(10,10,10,0.9)`);
             document.documentElement.style.setProperty('--h1-font-color', `rgba(255,255,255,1)`);
             document.documentElement.style.setProperty('--input-border-color', `rgba(255,255,255,1)`);
@@ -69,6 +71,34 @@ document.addEventListener("DOMContentLoaded", function () {
             document.documentElement.style.setProperty('--input-logo-color', `invert()`)
             document.documentElement.style.setProperty('--background-color-1', `rgba(0,0,0,1)`);
             document.documentElement.style.setProperty('--color-font-sidebar', `rgba(255,255,255,1)`);
+        }
+        else if (currentColor == 'rgba(10,10,10,0.9)') {
+            document.documentElement.style.setProperty('--header-background-color', `rgba(0,0,255,1)`);
+            document.documentElement.style.setProperty('--header-font-color', `rgba(255,234,0,1)`);
+            document.documentElement.style.setProperty('--main-info-container-background-color', `rgba(10,10,255,0.9)`);
+            document.documentElement.style.setProperty('--h1-font-color', `rgba(255,234,0,1)`);
+            document.documentElement.style.setProperty('--input-border-color', `rgba(255,234,0,1)`);
+            document.documentElement.style.setProperty('--input-background-color', `rgba(10,10,255,0.9)`);
+            document.documentElement.style.setProperty('--input-font-color', `rgba(255,234,0,1)`);
+            document.documentElement.style.setProperty('--main-button-background-color', `rgba(0,0,255,1)`);
+            document.documentElement.style.setProperty('--main-button-font-color', `rgba(255,234,0,1)`);
+            document.documentElement.style.setProperty('--input-logo-color', `invert()`)
+            document.documentElement.style.setProperty('--background-color-1', `rgba(0,0,255,1)`);
+            document.documentElement.style.setProperty('--color-font-sidebar', `rgba(255,234,0,1)`);
+        }
+        else {
+            document.documentElement.style.setProperty('--header-background-color', `rgba(180,9,9,0.1)`);
+            document.documentElement.style.setProperty('--header-font-color', `rgba(0,0,0,1)`);
+            document.documentElement.style.setProperty('--main-info-container-background-color', `rgba(180,9,9,0.20)`);
+            document.documentElement.style.setProperty('--h1-font-color', `rgba(0,0,0,0.75)`);
+            document.documentElement.style.setProperty('--input-border-color', `rgba(0,0,0,0.5)`);
+            document.documentElement.style.setProperty('--input-background-color', `rgba(255,255,255,1)`);
+            document.documentElement.style.setProperty('--input-font-color', `rgba(0,0,0,1)`);
+            document.documentElement.style.setProperty('--main-button-background-color', `rgba(9, 180, 180, 0.35)`);
+            document.documentElement.style.setProperty('--main-button-font-color', `rgba(0,0,0,1)`);
+            document.documentElement.style.setProperty('--input-logo-color', `initial`)
+            document.documentElement.style.setProperty('--background-color-1', `255,255,255,1`);
+            document.documentElement.style.setProperty('--color-font-sidebar', `rgba(0,0,0,1)`);
         }
     });
 });

@@ -76,7 +76,7 @@ img {
 
 .bg-colorMainTrans {
     --bs-bg-opacity: 0.1;
-    background-color: rgba(var(--colorMainRGB), var(--bs-bg-opacity));
+    background-color: var(--header-background-color);
 }
 
 .bg-grayContrast{
@@ -101,7 +101,7 @@ img {
 
 /* Header text format */
 .nav-link {
-    color: var(--textGrey) !important; /* This important would be unnecessary, but if we remove doesn't work, Why ? I don't know but I don't care*/
+    color: var(--header-font-color) !important; /* This important would be unnecessary, but if we remove doesn't work, Why ? I don't know but I don't care*/
     font-weight: lighter;
 }
 
@@ -127,4 +127,9 @@ img {
 .header-button{
     background: none;
     border: none;
+    color: var(--h1-font-color);
+}
+
+.navbar-light .navbar-brand{
+    color: var(--h1-font-color);
 }
