@@ -1,0 +1,94 @@
+﻿@page "/AdminOperadores/Equipos/AgregarEquipo"
+@model LayoutTemplateWebApp.Pages.PagesAdmOperador.vtn_adm_agregar_equipoModel
+@{
+}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnAgregarEquipo");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/AgregarEquipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnEliminarEquipo");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/EliminarEquipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnPrestarEquipo");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/PrestarEquipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnDevolverEquipo");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/DevolverEquipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnReportarEquipo");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/ReportarEquipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnEquiposPrestados");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/EquiposPrestados");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnCancelar");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/admOperadores-Equipo");
+        });
+    });
+</script>
+
+<div class="all-container">
+    <div class="sidebar-container">
+        <ul>
+            <li id="btnAgregarEquipo">Agregar Equipo</li>
+            <li id="btnEliminarEquipo">Eliminar Equipo</li>
+            <li id="btnPrestarEquipo">Prestar Equipo</li>
+            <li id="btnDevolverEquipo">Devolver Equipo</li>
+            <li id="btnReportarEquipo">Reportar Equipo Dañado</li>
+            <li id="btnEquiposPrestados">Equipos Prestados Actualmente</li>
+        </ul>
+    </div>
+    <div class="xy-center">
+        <div class="main-info-container">
+        
+            <h1>Agregar un nuevo equipo</h1>
+        
+            <div class="center-form input-container-margin">
+                <h3>Nombre</h3>
+                <input type="text" class="big-input" />
+            </div>
+
+            <div class="center-form input-container-margin">
+                <h3>Descripción</h3>
+                <textarea id="descripcionInput" name="descripcionInput" rows="4" class="big-input big-input-2">
+
+                </textarea>
+            </div>
+
+            <div class="parallel-container center-form">
+                <button class="main-button" id="btnAgregar">
+                    Agregar
+                </button>
+                <button class="main-button" id="btnCancelar">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .big-input-2{
+        height: 200px !important;
+    }
+</style>

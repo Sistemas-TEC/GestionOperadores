@@ -62,7 +62,7 @@ for details on configuring this project to bundle and minify static web assets. 
     position: absolute;
     bottom: 0;
     width: 100%;
-    background-color: var(--greyFooter);
+    background-color: var(--header-background-color);
     height:100%;
     max-height: var(--footerMaxHeigth);
 }

@@ -84,7 +84,7 @@ img {
 }
 
 .bg-footer{
-    background-color: var(--greyFooter);
+    background-color: var(--header-background-color);
 }
 
 /* This secction is for color for texts*/
@@ -121,7 +121,7 @@ img {
 }
 
 .footer.text-muted .container {
-    color: black; 
+    color: var(--header-font-color); 
     text-align: center; 
     font-weight: lighter;
 }

@@ -1,7 +1,45 @@
-﻿@page "/Operadores/Horarios-Operadores"
-@model LayoutTemplateWebApp.Pages.PagesOperador.vtn_operador_horarios_operadoresModel
+﻿@page "/AdminOperadores/Operadores/VerHorariosOperadores"
+@model LayoutTemplateWebApp.Pages.PagesAdmOperador.vtn_adm_visualizar_horarios_operadoresModel
 @{
 }
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnAgregarOperador");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/AgregarOperador");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const eliminarOperador = document.getElementById("btnEliminarOperador");
+        eliminarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/EliminarOperador");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const actualizarOperador = document.getElementById("btnActualizarOperador");
+        actualizarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/ActualizarOperador");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const verHorariosOperadores = document.getElementById("btnVerHorariosOperadores");
+        verHorariosOperadores.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/VerHorariosOperadores");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const asignarSustitucion = document.getElementById("btnAsignarSustitucion");
+        asignarSustitucion.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/AsignarSustitucion");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+            const asignarHorario = document.getElementById("btnAsignarHorario");
+        asignarHorario.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/AsignarHorario");
+        })
+    });
+</script>
 
 <style>
     .center-main-button {
@@ -27,7 +65,7 @@
 
     .grid-container h3 {
         width: 50%;
-     }
+    }
 
     .parallel-container-2 {
         display: flex;
@@ -36,26 +74,15 @@
     }
 </style>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const consultarHorarios = document.getElementById("btnConsultarHorariosOperadores");
-        consultarHorarios.addEventListener("click", function () {
-            window.location.assign("/Operadores/Horarios-Operadores");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const cerrar = document.getElementById("btnCerrar");
-        cerrar.addEventListener("click", function () {
-            window.location.assign("/Operadores/");
-        })
-    });
-    
-</script>
-
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
-            <li id="btnConsultarHorariosOperadores">Consultar Horarios de Operadores</li>
+            <li id="btnAgregarOperador">Agregar Operador</li>
+            <li id="btnEliminarOperador">Eliminar Operador</li>
+            <li id="btnActualizarOperador">Actualizar Datos Operador</li>
+            <li id="btnAsignarHorario">Asignar Horario</li>
+            <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
+            <li id="btnAsignarSustitucion">Asignar Sustitución</li>
         </ul>
     </div>
     <div class="xy-center">

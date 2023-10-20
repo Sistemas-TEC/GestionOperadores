@@ -216,3 +216,7 @@
     line-height: var(--line-height-main-info-container-h3);
     color: var(--input-font-color);
 }
+
+.input-container-margin {
+    margin-top: 20px;
+}
