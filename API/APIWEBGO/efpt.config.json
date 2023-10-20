@@ -1,0 +1,171 @@
+﻿{
+   "CodeGenerationMode": 3,
+   "ContextClassName": "GestionOperatorsContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "APIWEBGO",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[AdmOperator]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Classroom]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Equipment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Facility]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Laboratory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Operator]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SchedulexEquipment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SchedulexFacility]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SchedulexOperator]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[User]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CreateAdmOperator]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[CreateEquipment]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[CreateFacility]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[CreateOperator]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[CreateUser]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteAdmOperator]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteEquipment]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteFacility]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteOperator]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[DeleteUser]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReadAllAdmOperators]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReadAllEquipment]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReadAllFacilities]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReadAllUsers]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReadEquipment]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReadFacilityByID]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReadOperator]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReadUserByID]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateAdmOperator]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateEquipment]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateFacility]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateOperator]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UpdateUser]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "josepablo-pc.GestionOperators.dbo",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}
