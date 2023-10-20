@@ -57,9 +57,10 @@
     document.addEventListener("DOMContentLoaded", function () {
         const agregarOperador= document.getElementById("btnAgregar");
         agregarOperador.addEventListener("click", function () {
-            alert("Agregar");
+    @Model.OnPostAgregarOperador();
         });
     });
+
 </script>
 
 <div class="all-container">
@@ -79,29 +80,26 @@
 
             <h1>Agregar un nuevo operador</h1>
 
-            <div class="center-form input-container-margin" style="margin-top:50px" asp-for="CorreoElectronico">
-                <h3>Correo electrónico</h3>
-                <input type="email" class="big-input"/>
-            </div>
+            <form method="post">
+                <div class="center-form input-container-margin" style="margin-top:50px">
+                    <h3>Correo electrónico</h3>
+                    <input type="email" class="big-input" asp-for="CorreoElectronico" />
+                </div>
 
-            <div class="center-form input-container-margin" asp-for="Numtelefonico">
-                <h3>Número telefónico</h3>
-                <input type="number" class="big-input" />
-            </div>
+                <div class="center-form input-container-margin">
+                    <h3>Número telefónico</h3>
+                    <input type="text" class="big-input" asp-for="Numtelefonico" />
+                </div>
 
-            <div class="center-form input-container-margin">
-                <h3>Número de carnet</h3>
-                <input type="number" class="big-input" />
-            </div>
 
-            <div class="parallel-container center-form">
-                <button class="main-button" id="btnAgregar" >
-                    Agregar
-                </button>
-                <button class="main-button" id="btnCancelar">
-                    Cancelar
-                </button>
-            </div>
+                <div class="parallel-container center-form">
+                    <button type="submit" class="main-button" asp-page-handler="OnPostAgregarOperador">Agregar</button>
+               
+                    <button class="main-button" id="btnCancelar">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

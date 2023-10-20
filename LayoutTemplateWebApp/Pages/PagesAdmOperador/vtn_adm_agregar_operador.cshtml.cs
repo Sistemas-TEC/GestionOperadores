@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using LayoutTemplateWebApp.Models;
 using Microsoft.VisualStudio.Services.Common.Contracts;
+using System.Data;
 
 namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
 {
@@ -12,9 +12,15 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
     {
         private readonly GestionOperatorsContext _gestionOperatorsContext;
 
+
+
+
         public vtn_adm_agregar_operadorModel(GestionOperatorsContext gestionOperatorsContext)
         {
             _gestionOperatorsContext = gestionOperatorsContext;
+            CorreoElectronico = ""; // O asigna el valor predeterminado que desees
+            Numtelefonico = 0; // O asigna el valor predeterminado que desees
+            IdOperator = 0;
         }
 
 
@@ -27,26 +33,23 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
         [BindProperty]
         public int IdOperator { get; set; }
 
-        
-        public async Task AgregarOperador()
+
+        public async Task OnPostAgregarOperador()
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    // Crear un nuevo operador con los datos proporcionados por el usuario
-                    var nuevoOperador = new Operator
+
+
+                    var parameters = new SqlParameter[]
                     {
-                        Email = CorreoElectronico,
-                        Cellphone = Numtelefonico.ToString(),
-                        IdOperator = IdOperator
+                        new SqlParameter("@cellphone",Numtelefonico.ToString()),
+                        new SqlParameter("@email",CorreoElectronico)
+
                     };
 
-                    // Llamar al procedimiento almacenado para crear el operador
-                    var cellphoneParam = new SqlParameter("@cellphone", nuevoOperador.Cellphone);
-                    var emailParam = new SqlParameter("@email", nuevoOperador.Email);
-
-                    await _gestionOperatorsContext.Database.ExecuteSqlRawAsync("CreateOperator @cellphone, @email", cellphoneParam, emailParam);
+                    await _gestionOperatorsContext.Database.ExecuteSqlRawAsync("EXEC CreateOperator @cellphone, @email", parameters);
 
                     // Manejar el resultado del procedimiento almacenado
                     // Redirigir a una página de éxito, por ejemplo
@@ -60,9 +63,6 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 TempData["Mensaje"] = "Error al agregar el operador";
             }
         }
-    }
 
 
-
-
-}
+    } }
