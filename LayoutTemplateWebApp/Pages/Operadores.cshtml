@@ -1,0 +1,27 @@
+﻿@page
+@model LayoutTemplateWebApp.Pages.OperadoresModel
+@{
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const consultarHorarios = document.getElementById("btnConsultarHorariosOperadores");
+        consultarHorarios.addEventListener("click", function(){
+            window.location.assign("/Operadores/Horarios-Operadores");
+        });
+    });
+</script>
+
+<div class="all-container">
+    <div class="sidebar-container">
+        <ul>
+            <li id="btnConsultarHorariosOperadores">Consultar Horarios de Operadores</li>
+        </ul>
+    </div>
+    <div class="xy-center">
+        <h1>
+            Bienvenido a la sección de información de operadores<br/>
+            Seleccione la funcionalidad que desee utilizar en el menú de la izquierda
+        </h1>
+    </div>
+</div>

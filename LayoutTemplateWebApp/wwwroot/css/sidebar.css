@@ -1,0 +1,37 @@
+﻿.all-container {
+    display: flex;
+    height: 100%;
+    background-color: var(--background-color-1);
+}
+
+.sidebar-container {
+    height: 100%;
+    width: 14.35%;
+    min-height: 800px;
+    border-right: 1px solid var(--color-font-sidebar);
+    padding: 11px 22px;
+    background-color: var(--background-color-1);
+}
+
+.sidebar-container ul {
+    padding: 0;
+}
+
+.sidebar-container ul li {
+    list-style-type: none;
+    margin-bottom: 1.375rem;
+    cursor: pointer;
+
+    /*font style*/
+    color: var(--color-font-sidebar);
+    font-family: Roboto;
+    font-size: var(--font-size-sidebar-li);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--line-height-sidebar-li); /* 36px */
+    /*font style*/
+}
+
+.sidebar-container ul li:hover{
+    font-weight: bold;
+}

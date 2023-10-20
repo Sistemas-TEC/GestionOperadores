@@ -1,0 +1,98 @@
+﻿@page "/Operadores/Equipos/Prestar-Equipo"
+@model LayoutTemplateWebApp.Pages.PagesOperador.vtn_operador_prestar_equipoModel
+@{
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const consultarHorarios = document.getElementById("btnPrestarEquipo");
+        consultarHorarios.addEventListener("click", function(){
+            window.location.assign("/Operadores/Equipos/Prestar-Equipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const consultarHorarios = document.getElementById("btnLiberarEquipo");
+        consultarHorarios.addEventListener("click", function () {
+            window.location.assign("/Operadores/Equipos/Liberar-Equipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const consultarHorarios = document.getElementById("btnReportarEquipo");
+        consultarHorarios.addEventListener("click", function () {
+            window.location.assign("/Operadores/Equipos/Reportar-Equipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const consultarHorarios = document.getElementById("btnCerrar");
+        consultarHorarios.addEventListener("click", function () {
+            window.location.assign("/Equipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const consultarHorarios = document.getElementById("btnCancelarOperador");
+        consultarHorarios.addEventListener("click", function () {
+            window.location.assign("/Equipo");
+        });
+    });
+</script>
+
+<div class="all-container">
+    <div class="sidebar-container">
+        <ul>
+            <li id="btnPrestarEquipo">Prestar Equipo</li>
+            <li id="btnLiberarEquipo">Liberar Equipo</li>
+            <li id="btnReportarEquipo">Reportar Equipo Dañado</li>
+        </ul>
+    </div>
+    <div class="xy-center">
+       <div class="main-info-container">
+            <button class="close-button" id="btnCerrar">X</button>
+            <h1>Prestar equipo</h1>
+            <div class="center-form parallel-container">
+                <div class="small-input">
+                    <h3>Fecha</h3>
+                    <input type="date"/>
+                </div>
+                <div class="small-input">
+                    <h3>Equipo</h3>
+                    <select name="equipo" id="equipo" class="big-input">
+                        @foreach (var equipo in Model.lista_equipos)
+                        {
+                            <option value="@equipo.id">@equipo.descripcion</option>
+                        }
+                    </select>
+                </div>
+                
+            </div>
+            <div class="center-form parallel-container">
+                <div class="small-input">
+                    <h3>Hora de entrada</h3>
+                    <input type="time" />
+                </div>
+                <div class="small-input">
+                    <h3>Hora de salida</h3>
+                    <input type="time"/> 
+                </div>
+            </div>
+            <div class="center-form" style="margin-top:20px;">
+                <h3>Identificación del responsable</h3>
+                <input type="number" placeholder="Inserte la identificación del responsable" class="big-input" />
+            </div>
+
+            <div class="parallel-container center-form">
+                <button class="main-button">
+                    Prestar
+                </button>
+                <button class="main-button" id="btnCancelarOperador">
+                    Cancelar
+                </button>
+            </div>
+       </div>
+    </div>
+</div>
+
+<style>
+    .main-info-container{
+        height: auto;
+    }
+</style>

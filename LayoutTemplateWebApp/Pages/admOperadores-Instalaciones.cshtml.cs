@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace LayoutTemplateWebApp.Pages
 {
-    public class Option1Model : PageModel
+    public class admOperadores_InstalacionesModel : PageModel
     {
         public void OnGet()
         {
