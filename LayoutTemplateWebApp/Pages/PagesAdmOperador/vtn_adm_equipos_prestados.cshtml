@@ -53,8 +53,29 @@
         </ul>
     </div>
     <div class="xy-center">
-        <h1>
-            admEquiposPrestados
-        </h1>
+        <div class="main-info-container">
+            <h1>Listado de equipos prestados</h1>
+            <ul>
+                @foreach (var prestado in Model.equiposPrestados)
+                {
+                    <li>@prestado</li>
+                }
+            </ul>
+            <div class="parallel-container center-form">
+
+                <button class="main-button" id="btnReportar">
+                    Reportar
+                </button>
+                <button class="main-button" id="btnCancelar">
+                    Cancelar
+                </button>
+            </div>
+        </div>
     </div>
 </div>
+
+<style>
+    .main-info-container{
+        height: auto;
+    }
+</style>

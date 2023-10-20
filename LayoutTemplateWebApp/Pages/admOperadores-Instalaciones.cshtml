@@ -2,3 +2,40 @@
 @model LayoutTemplateWebApp.Pages.admOperadores_InstalacionesModel
 @{
 }
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnPrestarInstalacion");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Instalaciones/PrestarInstalacion");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const eliminarOperador = document.getElementById("btnLiberarInstalacion");
+        eliminarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Instalaciones/LiberarInstalacion");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const actualizarOperador = document.getElementById("btnConsultarHorariosInstalaciones");
+        actualizarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Instalaciones/HorariosInstalaciones");
+        });
+    });
+</script>
+
+<div class="all-container">
+    <div class="sidebar-container">
+        <ul>
+            <li id="btnPrestarInstalacion">Prestar Instalación</li>
+            <li id="btnLiberarInstalacion">Liberar Instalación</li>
+            <li id="btnConsultarHorariosInstalaciones">Consultar Horarios Instalaciones</li>            
+        </ul>
+    </div>
+    <div class="xy-center">
+        <h1>
+            Bienvenido a la sección de administrador de instalaciones<br/>
+            Seleccione la funcionalidad que desee utilizar en el menú de la izquierda
+        </h1>
+    </div>
+</div>
