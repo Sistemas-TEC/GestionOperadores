@@ -4,6 +4,8 @@
 }
 
 <script>
+
+
     document.addEventListener("DOMContentLoaded", function() {
         const agregarOperador = document.getElementById("btnAgregarOperador");
         agregarOperador.addEventListener("click", function(){
@@ -77,12 +79,12 @@
 
             <h1>Agregar un nuevo operador</h1>
 
-            <div class="center-form input-container-margin" style="margin-top:50px">
+            <div class="center-form input-container-margin" style="margin-top:50px" asp-for="CorreoElectronico">
                 <h3>Correo electrónico</h3>
                 <input type="email" class="big-input"/>
             </div>
 
-            <div class="center-form input-container-margin">
+            <div class="center-form input-container-margin" asp-for="Numtelefonico">
                 <h3>Número telefónico</h3>
                 <input type="number" class="big-input" />
             </div>
@@ -93,7 +95,7 @@
             </div>
 
             <div class="parallel-container center-form">
-                <button class="main-button" id="btnAgregar">
+                <button class="main-button" id="btnAgregar" >
                     Agregar
                 </button>
                 <button class="main-button" id="btnCancelar">
