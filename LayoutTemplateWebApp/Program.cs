@@ -1,8 +1,10 @@
+using LayoutTemplateWebApp.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+builder.Services.AddSqlServer<GestionOperatorsContext>(builder.Configuration.GetConnectionString("DefaultConnection"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
