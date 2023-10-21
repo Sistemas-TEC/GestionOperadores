@@ -6,15 +6,19 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
 {
     public class vtn_adm_eliminar_equipoModel : PageModel
     {
-        public List<string> equipos { get; set; }
+        public List<equipo> equipos { get; set; }
         public void OnGet()
         {
-            equipos = new List<string>
+            equipos = new List<equipo>
             {
-                "Cable HDMI1",
-                "Proyector1",
-                "Proyector2"
+                new equipo {id = 1, name="Cable1", descripcion="Buen estadoBuen estadoBuen estadoBuen estado"}
             };
         }
+    }
+    public class equipo
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string descripcion { get; set;}
     }
 }

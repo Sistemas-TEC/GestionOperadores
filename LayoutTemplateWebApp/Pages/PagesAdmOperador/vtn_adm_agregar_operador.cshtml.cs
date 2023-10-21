@@ -49,14 +49,14 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                     await _gestionOperatorsContext.Database.ExecuteSqlRawAsync("CreateOperator @cellphone, @email", cellphoneParam, emailParam);
 
                     // Manejar el resultado del procedimiento almacenado
-                    // Redirigir a una página de éxito, por ejemplo
+                    // Redirigir a una pï¿½gina de ï¿½xito, por ejemplo
                     TempData["Mensaje"] = "Operador agregado exitosamente";
                 }
             }
             catch (Exception ex)
             {
                 // Manejar cualquier error que pueda ocurrir al llamar al procedimiento almacenado
-                // Redirigir a una página de error, por ejemplo
+                // Redirigir a una pï¿½gina de error, por ejemplo
                 TempData["Mensaje"] = "Error al agregar el operador";
             }
         }
