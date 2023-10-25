@@ -21,15 +21,22 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
 
         public IActionResult OnPostBuscar()
         {
-            string instalaciones = Request.Form["instalaciones"];
-            DateTime fecha = DateTime.Parse(Request.Form["fecha"]);
-
-            using (var context = _gestionOperatorsContext)
+            try
             {
-                //Results = context.GetOpe
-                Results = context.GetGetOperatorsForFacilityOnDateResults.FromSqlRaw("EXEC GetOperatorsForFacilityOnDate {0}, {1}", fecha, instalaciones).ToList();
-                //var result = context.Database.ExecuteSqlRaw("EXEC GetOperatorsForFacilityOnDate {0}, {1}", fecha, instalaciones);
+                string instalaciones = Request.Form["instalaciones"];
+                DateTime fecha = DateTime.Parse(Request.Form["fecha"]);
+
+                using (var context = _gestionOperatorsContext)
+                {
+                    //Si despues de una generacion de contexto se cae aca, ir a GestionOperatorsContext.cs y agregar public virtual DbSet<GetOperatorsForFacilityOnDateResult> GetOperatorsForFacilityOnDateResults { get; set; } al inicio de la clase
+                    Results = context.GetOperatorsForFacilityOnDateResults.FromSqlRaw("EXEC GetOperatorsForFacilityOnDate {0}, {1}", fecha, instalaciones).ToList();
+                }
             }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Por favor llene los campos solicitados. Error: " + ex.Message;
+            }
+            
             return Page();
         }
 

@@ -32,26 +32,26 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
         {
             try
             {
-                /*if (ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     // Crear un nuevo operador con los datos proporcionados por el usuario
                     var nuevoOperador = new Operator
                     {
-                        Email = CorreoElectronico,
-                        Cellphone = Numtelefonico.ToString(),
-                        IdOperator = IdOperator
+                        email = CorreoElectronico,
+                        cellphone = Numtelefonico.ToString(),
+                        idOperator = IdOperator
                     };
 
                     // Llamar al procedimiento almacenado para crear el operador
-                    var cellphoneParam = new SqlParameter("@cellphone", nuevoOperador.Cellphone);
-                    var emailParam = new SqlParameter("@email", nuevoOperador.Email);
+                    var cellphoneParam = new SqlParameter("@cellphone", nuevoOperador.cellphone);
+                    var emailParam = new SqlParameter("@email", nuevoOperador.email);
 
                     await _gestionOperatorsContext.Database.ExecuteSqlRawAsync("CreateOperator @cellphone, @email", cellphoneParam, emailParam);
 
                     // Manejar el resultado del procedimiento almacenado
                     // Redirigir a una p�gina de �xito, por ejemplo
                     TempData["Mensaje"] = "Operador agregado exitosamente";
-                }*/
+                }
             }
             catch (Exception ex)
             {

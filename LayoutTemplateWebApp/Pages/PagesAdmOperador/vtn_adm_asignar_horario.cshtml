@@ -52,6 +52,12 @@
             window.location.assign("/admOperadores-Operadores");
         })
     });
+    document.addEventListener("DOMContentLoaded", function () {
+        const asignarHorario = document.getElementById("btnVisualizarOperadores");
+        asignarHorario.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
+        })
+    });
 </script>
 
 <div class="all-container">
@@ -63,7 +69,7 @@
             <li id="btnAsignarHorario">Asignar Horario</li>
             <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
             <li id="btnAsignarSustitucion">Asignar Sustitución</li>
-
+            <li id="btnVisualizarOperadores">Visualizar Operadores</li>
         </ul>
     </div>
     <div class="xy-center">

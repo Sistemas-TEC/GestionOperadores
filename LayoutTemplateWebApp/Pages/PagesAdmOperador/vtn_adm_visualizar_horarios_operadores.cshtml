@@ -44,8 +44,21 @@
         buscar.addEventListener("click", function () {
             alert(instalacion);
         })
-    })
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const asignarHorario = document.getElementById("btnVisualizarOperadores");
+        asignarHorario.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
+        })
+    });
 </script>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
 
 <style>
     .center-main-button {
@@ -90,6 +103,7 @@
             <li id="btnAsignarHorario">Asignar Horario</li>
             <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
             <li id="btnAsignarSustitucion">Asignar Sustitución</li>
+            <li id="btnVisualizarOperadores">Visualizar Operadores</li>
         </ul>
     </div>
     <div class="xy-center">

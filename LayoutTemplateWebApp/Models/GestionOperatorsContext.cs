@@ -31,7 +31,7 @@ public partial class GestionOperatorsContext : DbContext
 
     public virtual DbSet<SchedulexOperator> SchedulexOperators { get; set; }
 
-    public virtual DbSet<GetOperatorsForFacilityOnDateResult> GetGetOperatorsForFacilityOnDateResults { get; set; }
+    public virtual DbSet<GetOperatorsForFacilityOnDateResult> GetOperatorsForFacilityOnDateResults { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<AdmOperator>(entity =>

@@ -24,6 +24,7 @@ namespace LayoutTemplateWebApp.Models
         Task<int> DeleteFacilityAsync(int? idFacilities, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> DeleteLaboratoryAsync(string idLaboratory, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> DeleteOperatorAsync(int? idOperator, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> deleteOperatorByEmailAsync(string email, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetOperatorsForFacilityOnDateResult>> GetOperatorsForFacilityOnDateAsync(DateTime? inputDate, string inputFacilityId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> ModificarOperadorAsync(int? idOperador, string nuevoCellphone, string nuevoEmail, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<ReadAllAdmOperatorsResult>> ReadAllAdmOperatorsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);

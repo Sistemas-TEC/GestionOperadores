@@ -54,10 +54,23 @@
     document.addEventListener("DOMContentLoaded", function () {
         const consultarHorarios = document.getElementById("btnEliminar");
         consultarHorarios.addEventListener("click", function () {
-            alert("Eliminar");
+            //alert("Eliminar");
         });
     });
+    document.addEventListener("DOMContentLoaded", function () {
+        const asignarHorario = document.getElementById("btnVisualizarOperadores");
+        asignarHorario.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
+        })
+    });
 </script>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
 
 <div class="all-container">
     <div class="sidebar-container">
@@ -68,6 +81,7 @@
             <li id="btnAsignarHorario">Asignar Horario</li>
             <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
             <li id="btnAsignarSustitucion">Asignar Sustitución</li>
+            <li id="btnVisualizarOperadores">Visualizar Operadores</li>
         </ul>
     </div>
     <div class="xy-center">
@@ -76,14 +90,14 @@
 
             <h1>Eliminar un operador</h1>
 
-            <form method="post">
+            <form asp-page-handler="Eliminar" method="post">
                 <div class="center-form input-container-margin">
                     <h3>Correo electrónico del operador</h3>
-                    <input type="email" class="big-input" />
+                    <input type="email" class="big-input" name="email"/>
                 </div>
 
                 <div class="parallel-container center-form">
-                    <button class="main-button" id="btnEliminar">
+                    <button class="main-button" id="btnEliminar" type="submit">
                         Eliminar
                     </button>
                     <button class="main-button" id="btnCancelar">
