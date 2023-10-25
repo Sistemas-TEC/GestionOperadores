@@ -52,10 +52,6 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[User]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[CreateAdmOperator]",
          "ObjectType": 1
       },
@@ -77,10 +73,6 @@
       },
       {
          "Name": "[dbo].[CreateOperator]",
-         "ObjectType": 1
-      },
-      {
-         "Name": "[dbo].[CreateUser]",
          "ObjectType": 1
       },
       {
@@ -108,7 +100,11 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[DeleteUser]",
+         "Name": "[dbo].[GetOperatorsForFacilityOnDate]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ModificarOperador]",
          "ObjectType": 1
       },
       {
@@ -132,10 +128,6 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[ReadAllUsers]",
-         "ObjectType": 1
-      },
-      {
          "Name": "[dbo].[ReadClassroomByID]",
          "ObjectType": 1
       },
@@ -153,10 +145,6 @@
       },
       {
          "Name": "[dbo].[ReadOperator]",
-         "ObjectType": 1
-      },
-      {
-         "Name": "[dbo].[ReadUserByID]",
          "ObjectType": 1
       },
       {
@@ -178,25 +166,22 @@
       {
          "Name": "[dbo].[UpdateLaboratory]",
          "ObjectType": 1
-      },
-      {
-         "Name": "[dbo].[UpdateUser]",
-         "ObjectType": 1
       }
    ],
-   "UiHint": "SomeeGO",
+   "UiHint": "DBGestionOperadores",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
-   "UseDatabaseNames": false,
+   "UseDatabaseNames": true,
    "UseDateOnlyTimeOnly": false,
    "UseDbContextSplitting": false,
    "UseFluentApiOnly": true,
    "UseHandleBars": false,
    "UseHierarchyId": false,
-   "UseInflector": false,
+   "UseInflector": true,
    "UseLegacyPluralizer": false,
    "UseManyToManyEntity": false,
    "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
    "UseNoObjectFilter": false,
    "UseNodaTime": false,
    "UseNullableReferences": false,

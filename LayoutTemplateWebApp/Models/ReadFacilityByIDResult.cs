@@ -7,7 +7,7 @@ namespace LayoutTemplateWebApp.Models
 {
     public partial class ReadFacilityByIDResult
     {
-        public int idFacilities { get; set; }
+        public string idFacilities { get; set; }
         public int? capacity { get; set; }
         public int? idUser { get; set; }
     }

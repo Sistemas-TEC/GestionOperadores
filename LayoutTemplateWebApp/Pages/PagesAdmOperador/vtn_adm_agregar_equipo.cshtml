@@ -74,6 +74,24 @@
                     <textarea id="descripcionInput" name="descripcionInput" rows="4" class="big-input big-input-2"></textarea>
                 </div>
 
+                <div class="center-form input-container-margin">
+                    <h3>Disponibilidad</h3>
+                    <select name="disponibilidad" id="disponibilidad" class="big-input">
+                        <option value="0">Disponible</option>
+                        <option value="1">Ocupada</option>
+                    </select>
+                </div>
+
+                <div class="center-form input-container-margin">
+                    <h3>Condición</h3>
+                    <input type="text" class="big-input">
+                </div>
+
+                <div class="center-form input-container-margin">
+                    <h3>Número de identificación</h3>
+                    <input type="number" class="big-input">
+                </div>
+
                 <div class="parallel-container center-form">
                     <button class="main-button" id="btnAgregar">
                         Agregar
@@ -88,6 +106,16 @@
 </div>
 
 <style>
+    .sidebar-container{
+        height: auto;
+    }
+    .xy-center{
+        margin-top: 30px;
+        height: auto;
+    }
+    .main-info-container{
+        height: auto;
+    }
     .big-input-2{
         height: 200px !important;
     }

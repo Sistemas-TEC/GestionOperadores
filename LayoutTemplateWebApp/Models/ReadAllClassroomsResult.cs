@@ -8,6 +8,6 @@ namespace LayoutTemplateWebApp.Models
     public partial class ReadAllClassroomsResult
     {
         public string idClassroom { get; set; }
-        public int? idFacilities { get; set; }
+        public string idFacilities { get; set; }
     }
 }

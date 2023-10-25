@@ -5,9 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LayoutTemplateWebApp.Models
 {
-    public partial class ReadUserByIDResult
+    public partial class GetOperatorsForFacilityOnDateResult
     {
-        public int idUser { get; set; }
+        public TimeSpan? beginningHour { get; set; }
+        public TimeSpan? finishingHour { get; set; }
+        public int idOperator { get; set; }
+        public string cellphone { get; set; }
         public string email { get; set; }
     }
 }

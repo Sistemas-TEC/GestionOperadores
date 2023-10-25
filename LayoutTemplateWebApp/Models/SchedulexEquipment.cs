@@ -7,17 +7,17 @@ namespace LayoutTemplateWebApp.Models;
 
 public partial class SchedulexEquipment
 {
-    public int IdSchedulexEquipment { get; set; }
+    public int idSchedulexEquipment { get; set; }
 
-    public DateTime? InitialDate { get; set; }
+    public DateTime? initialDate { get; set; }
 
-    public DateTime? FinalDate { get; set; }
+    public DateTime? finalDate { get; set; }
 
-    public TimeSpan? BeginningHour { get; set; }
+    public TimeSpan? beginningHour { get; set; }
 
-    public TimeSpan? FinishingHour { get; set; }
+    public TimeSpan? finishingHour { get; set; }
 
-    public int? IdEquipment { get; set; }
+    public int? idEquipment { get; set; }
 
-    public virtual Equipment IdEquipmentNavigation { get; set; }
+    public virtual Equipment idEquipmentNavigation { get; set; }
 }

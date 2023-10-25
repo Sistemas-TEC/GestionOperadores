@@ -7,11 +7,11 @@ namespace LayoutTemplateWebApp.Models;
 
 public partial class Operator
 {
-    public int IdOperator { get; set; }
+    public int idOperator { get; set; }
 
-    public string Cellphone { get; set; }
+    public string cellphone { get; set; }
 
-    public string Email { get; set; }
+    public string email { get; set; }
 
-    public virtual ICollection<SchedulexOperator> SchedulexOperator { get; set; } = new List<SchedulexOperator>();
+    public virtual ICollection<SchedulexOperator> SchedulexOperators { get; set; } = new List<SchedulexOperator>();
 }

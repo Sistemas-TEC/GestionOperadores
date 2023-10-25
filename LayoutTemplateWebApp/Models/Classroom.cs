@@ -7,9 +7,9 @@ namespace LayoutTemplateWebApp.Models;
 
 public partial class Classroom
 {
-    public string IdClassroom { get; set; }
+    public string idClassroom { get; set; }
 
-    public int? IdFacilities { get; set; }
+    public string idFacilities { get; set; }
 
-    public virtual Facility IdFacilitiesNavigation { get; set; }
+    public virtual Facility idFacilitiesNavigation { get; set; }
 }

@@ -32,7 +32,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
         {
             try
             {
-                if (ModelState.IsValid)
+                /*if (ModelState.IsValid)
                 {
                     // Crear un nuevo operador con los datos proporcionados por el usuario
                     var nuevoOperador = new Operator
@@ -51,7 +51,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                     // Manejar el resultado del procedimiento almacenado
                     // Redirigir a una p�gina de �xito, por ejemplo
                     TempData["Mensaje"] = "Operador agregado exitosamente";
-                }
+                }*/
             }
             catch (Exception ex)
             {
