@@ -80,7 +80,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 TimeSpan entradaTimeSpan = new TimeSpan(entrada.Hour % 12 + (entrada.Hour >= 12 ? 12 : 0), entrada.Minute, 0);
                 //TimeSpan salidaTimeSpan = TimeSpan.FromHours(salida.Hour) + TimeSpan.FromMinutes(salida.Minute);
                 TimeSpan salidaTimeSpan = new TimeSpan(salida.Hour % 12 + (salida.Hour >= 12 ? 12 : 0), salida.Minute, 0);
-                Console.WriteLine(carnet + " " + formattedDate + " " + entradaTimeSpan.ToString() + " " + salidaTimeSpan.ToString());
+                //Console.WriteLine(carnet + " " + formattedDate + " " + entradaTimeSpan.ToString() + " " + salidaTimeSpan.ToString());
                 /*int carnet = 1;
                 DateTime fecha = DateTime.Parse("10/26/2023");
                 string idFacility = "B3-1";
@@ -89,7 +89,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 using (var context = _gestionOperatorsContext)
                 {
                     var result = context.Database.ExecuteSqlRaw("EXEC AssignOperatorSubstitution2 {0}, {1}, {2}, {3}, {4}", fecha, entradaTimeSpan, salidaTimeSpan, carnet, idFacility);
-                    TempData["ErrorMessage"] = result;
+                    //TempData["ErrorMessage"] = result;
                 }
             }
             catch (Exception ex)
