@@ -33,9 +33,14 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 {
                     var result = context.Database.ExecuteSqlRaw("EXEC LendFacility {0}, {1}, {2}, {3}, {4}", idFacility,entradaTimeSpan,salidaTimeSpan,actividad,fecha);
                     //TempData["ErrorMessage"] = result;
-                    if (result == 1)
+                    Console.WriteLine(result);
+                    if (result == 0)
                     {
-                        TempData["ErrorMessage"] = "No se logró prestar la instalación.";
+                        TempData["ErrorMessage"] = "No se logro prestar la instalacion.";
+                    }
+                    else
+                    {
+                        TempData["ErrorMessage"] = "Instalacion prestada con exito.";
                     }
                 }
             }

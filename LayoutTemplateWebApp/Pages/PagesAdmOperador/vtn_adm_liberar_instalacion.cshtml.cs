@@ -30,9 +30,12 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 {
                     var result = context.Database.ExecuteSqlRaw("EXEC FreeFacility {0}, {1}, {2}, {3}", idFacility, entradaTimeSpan, salidaTimeSpan, fecha);
                     //TempData["ErrorMessage"] = result;
-                    if (result == 1)
+                    if (result == 0)
                     {
-                        TempData["ErrorMessage"] = "No se logró liberar la instalación.";
+                        TempData["ErrorMessage"] = "No se logro liberar la instalacion.";
+                    }else
+                    {
+                        TempData["ErrorMessage"] = "Instalacion liberada con exito.";
                     }
                 }
             }
