@@ -5,9 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LayoutTemplateWebApp.Models
 {
-    public partial class ReadClassroomByIDResult
+    public partial class ReadAllOperatorsResult
     {
-        public string idClassroom { get; set; }
-        public string idFacilities { get; set; }
+        public int idOperator { get; set; }
+        public string cellphone { get; set; }
+        public string email { get; set; }
     }
 }

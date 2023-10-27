@@ -7,9 +7,9 @@ namespace LayoutTemplateWebApp.Models;
 
 public partial class Laboratory
 {
-    public string IdLaboratory { get; set; }
+    public string idLaboratory { get; set; }
 
-    public int? IdFacilities { get; set; }
+    public string idFacilities { get; set; }
 
-    public virtual Facility IdFacilitiesNavigation { get; set; }
+    public virtual Facility idFacilitiesNavigation { get; set; }
 }

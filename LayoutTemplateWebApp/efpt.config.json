@@ -52,8 +52,12 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[User]",
-         "ObjectType": 0
+         "Name": "[dbo].[AssignOperatorSubstitution2]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ChangeEquipmentDescription]",
+         "ObjectType": 1
       },
       {
          "Name": "[dbo].[CreateAdmOperator]",
@@ -80,7 +84,7 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[CreateUser]",
+         "Name": "[dbo].[CreateScheduleXOperator]",
          "ObjectType": 1
       },
       {
@@ -108,7 +112,35 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[DeleteUser]",
+         "Name": "[dbo].[deleteOperatorByEmail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[FreeFacility]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetOperatorsForFacilityOnDate]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetScheduleForFacilityOnDate]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[LendEquipment]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[LendFacility]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ModificarOperador]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[obtenerEquiposPrestados]",
          "ObjectType": 1
       },
       {
@@ -132,7 +164,7 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[ReadAllUsers]",
+         "Name": "[dbo].[ReadAllOperators]",
          "ObjectType": 1
       },
       {
@@ -156,10 +188,6 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[ReadUserByID]",
-         "ObjectType": 1
-      },
-      {
          "Name": "[dbo].[UpdateAdmOperator]",
          "ObjectType": 1
       },
@@ -180,23 +208,24 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[UpdateUser]",
+         "Name": "[dbo].[updateOperator]",
          "ObjectType": 1
       }
    ],
    "UiHint": "SomeeGO",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
-   "UseDatabaseNames": false,
+   "UseDatabaseNames": true,
    "UseDateOnlyTimeOnly": false,
    "UseDbContextSplitting": false,
    "UseFluentApiOnly": true,
    "UseHandleBars": false,
    "UseHierarchyId": false,
-   "UseInflector": false,
+   "UseInflector": true,
    "UseLegacyPluralizer": false,
    "UseManyToManyEntity": false,
    "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
    "UseNoObjectFilter": false,
    "UseNodaTime": false,
    "UseNullableReferences": false,

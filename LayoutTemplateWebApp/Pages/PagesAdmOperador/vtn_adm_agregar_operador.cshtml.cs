@@ -1,10 +1,10 @@
-using LayoutTemplateWebApp.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using LayoutTemplateWebApp.Models;
 using Microsoft.VisualStudio.Services.Common.Contracts;
-using System.Data;
+using System.Threading.Tasks;  // Agrega using para Task
+using Azure.Core;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
 {
@@ -12,57 +12,35 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
     {
         private readonly GestionOperatorsContext _gestionOperatorsContext;
 
-
-
-
         public vtn_adm_agregar_operadorModel(GestionOperatorsContext gestionOperatorsContext)
         {
             _gestionOperatorsContext = gestionOperatorsContext;
-            CorreoElectronico = ""; // O asigna el valor predeterminado que desees
-            Numtelefonico = 0; // O asigna el valor predeterminado que desees
-            IdOperator = 0;
         }
 
+        public void OnGet()
+        {
+        }
 
-        [BindProperty]
-        public string CorreoElectronico { get; set; }
-
-        [BindProperty]
-        public int Numtelefonico { get; set; }
-
-        [BindProperty]
-        public int IdOperator { get; set; }
-
-
-        public async Task OnPostAgregarOperador()
+        public async Task<IActionResult> OnPostAgregarOperador()  // Cambio de nombre
         {
             try
             {
-                if (ModelState.IsValid)
+                string email = Request.Form["email"];
+                string cellphone = Request.Form["cellphone"];
+                int id = Int32.Parse(Request.Form["id"]);  // Cambio de nombre
+
+                using (var context = _gestionOperatorsContext)
                 {
-
-
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@cellphone",Numtelefonico.ToString()),
-                        new SqlParameter("@email",CorreoElectronico)
-
-                    };
-
-                    await _gestionOperatorsContext.Database.ExecuteSqlRawAsync("EXEC CreateOperator @cellphone, @email", parameters);
-
-                    // Manejar el resultado del procedimiento almacenado
-                    // Redirigir a una p·gina de Èxito, por ejemplo
-                    TempData["Mensaje"] = "Operador agregado exitosamente";
+                    var result = context.Database.ExecuteSqlRaw("EXEC CreateOperator {0}, {1}, {2}", id, cellphone, email);
                 }
+                TempData["SuccessMessage"] = "Operador agregado exitosamente";  // Correcci√≥n de mensaje
+
             }
             catch (Exception ex)
             {
-                // Manejar cualquier error que pueda ocurrir al llamar al procedimiento almacenado
-                // Redirigir a una p·gina de error, por ejemplo
-                TempData["Mensaje"] = "Error al agregar el operador";
+                TempData["ErrorMessage"] = "No se pudo agregar el operador. Error: " + ex.Message;
             }
+            return Page();
         }
-
-
-    } }
+    }
+}

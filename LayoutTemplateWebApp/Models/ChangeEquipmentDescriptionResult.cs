@@ -5,9 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LayoutTemplateWebApp.Models
 {
-    public partial class ReadClassroomByIDResult
+    public partial class ChangeEquipmentDescriptionResult
     {
-        public string idClassroom { get; set; }
-        public string idFacilities { get; set; }
+        public string Message { get; set; }
     }
 }

@@ -58,18 +58,12 @@
             <ul>
                 @foreach (var prestado in Model.equiposPrestados)
                 {
-                    <li>@prestado</li>
+                    <li>
+                        ID: @prestado.idEquipment, Nombre: @prestado.name, Descripción: @prestado.description
+                    </li>
                 }
             </ul>
-            <div class="parallel-container center-form">
-
-                <button class="main-button" id="btnReportar">
-                    Reportar
-                </button>
-                <button class="main-button" id="btnCancelar">
-                    Cancelar
-                </button>
-            </div>
+           
         </div>
     </div>
 </div>

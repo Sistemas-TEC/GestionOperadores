@@ -7,19 +7,17 @@ namespace LayoutTemplateWebApp.Models;
 
 public partial class Equipment
 {
-    public int IdEquipment { get; set; }
+    public int idEquipment { get; set; }
 
-    public bool? Availability { get; set; }
+    public bool? availability { get; set; }
 
-    public string Name { get; set; }
+    public string name { get; set; }
 
-    public string Description { get; set; }
+    public string description { get; set; }
 
-    public int? IdUser { get; set; }
+    public int? idUser { get; set; }
 
-    public string Condition { get; set; }
+    public string condition { get; set; }
 
-    public virtual User IdUserNavigation { get; set; }
-
-    public virtual ICollection<SchedulexEquipment> SchedulexEquipment { get; set; } = new List<SchedulexEquipment>();
+    public virtual ICollection<SchedulexEquipment> SchedulexEquipments { get; set; } = new List<SchedulexEquipment>();
 }

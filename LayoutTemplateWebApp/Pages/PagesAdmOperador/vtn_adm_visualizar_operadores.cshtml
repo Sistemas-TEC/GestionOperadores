@@ -1,5 +1,5 @@
-﻿@page
-@model LayoutTemplateWebApp.Pages.admOperadoresModel
+﻿@page "/AdminOperadores/Operadores/VisualizarOperadores"
+@model LayoutTemplateWebApp.Pages.PagesAdmOperador.vtn_adm_visualizar_operadoresModel
 @{
 }
 
@@ -34,12 +34,30 @@
             window.location.assign("/AdminOperadores/Operadores/AsignarSustitucion");
         });
     });
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
+        const consultarHorarios = document.getElementById("btnCerrar");
+        consultarHorarios.addEventListener("click", function () {
+            window.location.assign("/admOperadores-Operadores");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const consultarHorarios = document.getElementById("btnCancelar");
+        consultarHorarios.addEventListener("click", function () {
+            window.location.assign("/admOperadores-Operadores");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const consultarHorarios = document.getElementById("btnActualizar");
+        consultarHorarios.addEventListener("click", function () {
+            alert("Actualizar")
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
         const asignarHorario = document.getElementById("btnAsignarHorario");
-        asignarHorario.addEventListener("click", function() {
+        asignarHorario.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/AsignarHorario");
         })
-    })
+    });
     document.addEventListener("DOMContentLoaded", function () {
         const asignarHorario = document.getElementById("btnVisualizarOperadores");
         asignarHorario.addEventListener("click", function () {
@@ -47,6 +65,29 @@
         })
     });
 </script>
+
+<style>
+    .main-info-container{
+        height: auto;
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .grid-item{
+        border: 1px solid var(--color-font-sidebar);
+        padding: 10px;
+        font-family: Roboto;
+        font-size: var(--font-size-sidebar-li);
+    }
+</style>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
 
 <div class="all-container">
     <div class="sidebar-container">
@@ -61,9 +102,29 @@
         </ul>
     </div>
     <div class="xy-center">
-        <h1>
-            Bienvenido a la sección de administrador de operadores<br/>
-            Seleccione la funcionalidad que desee utilizar en el menú de la izquierda
-        </h1>
+        <div class="main-info-container">
+            <button class="close-button" id="btnCerrar">X</button>
+
+            <h1>Visualizar operadores</h1>
+
+            <div class="grid-container">
+                <div class="grid-item">Id del operador</div>
+                <div class="grid-item">Email del operador</div>
+                <div class="grid-item">Teléfono del operador</div>
+            </div>
+
+            @if(Model.Results != null && Model.Results.Any())
+                {
+                    @foreach (var item in Model.Results)
+                    {
+                        <div class="grid-container">
+                            <div class="grid-item">@item.idOperator</div>
+                            <div class="grid-item">@item.email</div>
+                            <div class="grid-item">@item.cellphone</div>
+                        </div>
+                    }
+                }
+
+        </div>
     </div>
 </div>

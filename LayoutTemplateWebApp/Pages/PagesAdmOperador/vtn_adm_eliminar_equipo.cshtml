@@ -70,24 +70,25 @@
             <h1>Eliminar un equipo</h1>
 
             <div class="center-form" style="margin-top:40px">
-                <h3>Seleccione el equipo</h3>
-                <select class="big-input">
-                    @foreach (var equipo in Model.equipos)
-                    {
-                        <option value="@equipo">@equipo</option>
-                    }
-                </select>
+                <h3>Ingrese el ID del equipo a eliminar</h3>
+                
             </div>
 
-            <div class="parallel-container center-form">
-              
-                <button class="main-button" id="btnEliminar">
-                    Eliminar
-                </button>
-                <button class="main-button" id="btnCancelar">
-                    Cancelar
-                </button>
-            </div>
+            <form asp-page-handler="EliminarEquipo" method="post">
+                <div class="center-form input-container-margin">
+                    <h3>ID Equipo</h3>
+                    <input type="number" class="big-input" name="numberEquipo" />
+                </div>
+
+                <div class="parallel-container center-form">
+                    <button class="main-button" id="btnEliminarEqp" type="submit">
+                        Eliminar
+                    </button>
+                    <button class="main-button" id="btnCancelar">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

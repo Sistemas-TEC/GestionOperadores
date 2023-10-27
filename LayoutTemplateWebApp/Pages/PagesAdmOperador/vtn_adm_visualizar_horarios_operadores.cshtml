@@ -39,7 +39,26 @@
             window.location.assign("/AdminOperadores/Operadores/AsignarHorario");
         })
     });
+    document.addEventListener("DOMContentLoaded", function () {
+        const buscar = document.getElementById("btnBuscar");
+        buscar.addEventListener("click", function () {
+            alert(instalacion);
+        })
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const asignarHorario = document.getElementById("btnVisualizarOperadores");
+        asignarHorario.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
+        })
+    });
 </script>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
 
 <style>
     .center-main-button {
@@ -49,6 +68,7 @@
     }
 
     .main-info-container {
+        height: auto;
         overflow-y: scroll;
         scrollbar-width: none;
         -ms-overflow-style: none;
@@ -67,7 +87,7 @@
         width: 50%;
     }
 
-    .parallel-container-2 {
+    .parallel-container-2 form {
         display: flex;
         justify-content: space-between;
         margin-bottom: 8px;
@@ -83,6 +103,7 @@
             <li id="btnAsignarHorario">Asignar Horario</li>
             <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
             <li id="btnAsignarSustitucion">Asignar Sustitución</li>
+            <li id="btnVisualizarOperadores">Visualizar Operadores</li>
         </ul>
     </div>
     <div class="xy-center">
@@ -90,77 +111,39 @@
             <button class="close-button" id="btnCerrar">X</button>
             <h1>Horarios de operadores</h1>
             <div class="parallel-container-2">
-                <div class="small-input">
-                    <h3>Aula</h3>
-                    <select name="instalaciones" id="instalaciones">
-                        <option value="B3">B3-1</option>
-                        <option value="TM">TM</option>
-                        <option value="B6-1">B6-1</option>
-                        <option value="B6-2">B6-2</option>
-                    </select>
-                </div>
-                <div class="small-input">
-                    <h3>Fecha</h3>
-                    <input type="date" />
-                </div>
-
-                <button class="main-button" style="margin-top: 26px">
-                    Buscar
-                </button>
-            </div>
-            <div>
+                <form asp-page-handler="Buscar" method="post">
+                    <div class="small-input">
+                        <h3>Aula</h3>
+                        <select name="instalaciones" id="instalaciones">
+                            <option value="B3-1">B3-1</option>
+                            <option value="TM">TM</option>
+                            <option value="B6-1">B6-1</option>
+                            <option value="B6-2">B6-2</option>
+                        </select>
+                    </div>
+                    <div class="small-input">
+                        <h3>Fecha</h3>
+                        <input type="date" name="fecha"/>
+                    </div>
+                    <button type="submit" class="main-button" style="margin-top: 26px" id="btnBuscar">
+                        Buscar
+                    </button>
+                </form>
                 <div class="grid-container">
-                    <h3>7:30-8:20 </h3>
-                    <h3>@Model.data_mostrar.leccion1</h3>
+                    <h3>Horario</h3>
+                    <h3 style="border-left: 2px solid black">Identificacion del operador</h3>
                 </div>
-                <div class="grid-container">
-                    <h3>8:30-9:20 </h3>
-                    <h3>@Model.data_mostrar.leccion2</h3>
-                </div>
-                <div class="grid-container">
-                    <h3>9:30-10:20 </h3>
-                    <h3>@Model.data_mostrar.leccion3</h3>
-                </div>
-                <div class="grid-container">
-                    <h3>10:30-11:20 </h3>
-                    <h3>@Model.data_mostrar.leccion4</h3>
-                </div>
-                <div class="grid-container">
-                    <h3>11:30-12:20 </h3>
-                    <h3>@Model.data_mostrar.leccion5</h3>
-                </div>
-                <div class="grid-container">
-                    <h3>1:00-2:00 </h3>
-                    <h3>@Model.data_mostrar.leccion6</h3>
-                </div>
-                <div class="grid-container">
-                    <h3>2:00-3:00 </h3>
-                    <h3>@Model.data_mostrar.leccion7</h3>
-                </div>
-                <div class="grid-container">
-                    <h3>3:00-4:00 </h3>
-                    <h3>@Model.data_mostrar.leccion8</h3>
-                </div>
-                <div class="grid-container">
-                    <h3>4:00-5:00 </h3>
-                    <h3>@Model.data_mostrar.leccion9</h3>
-                </div>
-                <div class="grid-container">
-                    <h3>5:00-6:00 </h3>
-                    <h3>@Model.data_mostrar.leccion10</h3>
-                </div>
-                <div class="grid-container">
-                    <h3>6:00-7:00 </h3>
-                    <h3>@Model.data_mostrar.leccion11</h3>
-                </div>
-                <div class="grid-container">
-                    <h3>7:00-8:00 </h3>
-                    <h3>@Model.data_mostrar.leccion12</h3>
-                </div>
-                <div class="grid-container">
-                    <h3>8:00-9:00 </h3>
-                    <h3>@Model.data_mostrar.leccion13</h3>
-                </div>
+                @if(Model.Results != null && Model.Results.Any())
+                {
+                    @foreach (var item in Model.Results)
+                    {
+                        <div class="grid-container">
+                            <h3>@item.beginningHour - @item.finishingHour</h3>
+                            <h3 style="border-left: 2px solid black">@item.idOperator</h3>
+                        </div>
+                    }
+                }
+                
             </div>
 
         </div>

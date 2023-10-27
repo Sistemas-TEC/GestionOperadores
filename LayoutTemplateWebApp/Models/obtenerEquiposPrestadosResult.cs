@@ -5,10 +5,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LayoutTemplateWebApp.Models
 {
-    public partial class ReadFacilityByIDResult
+    public partial class obtenerEquiposPrestadosResult
     {
-        public string idFacilities { get; set; }
-        public int? capacity { get; set; }
+        public int idEquipment { get; set; }
+        public bool? availability { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
         public int? idUser { get; set; }
+        public string condition { get; set; }
     }
 }

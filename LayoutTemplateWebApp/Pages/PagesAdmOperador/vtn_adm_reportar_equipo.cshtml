@@ -69,30 +69,30 @@
 
             <h1>Reportar un equipo</h1>
 
-            <div class="center-form input-container-margin">
-                <h3>Seleccione el equipo</h3>
-                <select class="big-input">
-                    @foreach (var equipo in Model.equipos)
-                    {
-                        <option value="@equipo">@equipo</option>
-                    }
-                </select>
-            </div>
+            <form asp-page-handler="ReportarEquipo" method="post">
 
-            <div class="center-form input-container-margin">
-                <h3>Descripción del reporte</h3>
-                <textarea class="big-input" rows="5" id="reporte" name="reporte"></textarea>
-            </div>
+                <div class="center-form input-container-margin">
+                    <h3>Número de carnet</h3>
+                    <input type="number" class="big-input" placeholder="Ingrese el número de carnet del operador a modificar" name="id" />
 
-            <div class="parallel-container center-form">
-              
-                <button class="main-button" id="btnReportar">
-                    Reportar
-                </button>
-                <button class="main-button" id="btnCancelar">
-                    Cancelar
-                </button>
-            </div>
+                </div>
+
+
+                <div class="center-form input-container-margin" style="margin-top:50px">
+                    <h3>Descripcion</h3>
+                    <input type="text" class="big-input" placeholder="Ingrese el nuevo correo del operador" name="description" />
+
+                </div>
+
+                <div class="parallel-container center-form">
+                    <button class="main-button" id="btnActualizar">
+                        Agregar
+                    </button>
+                    <button class="main-button" id="btnCancelar">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

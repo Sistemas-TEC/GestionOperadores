@@ -7,9 +7,9 @@ namespace LayoutTemplateWebApp.Models;
 
 public partial class AdmOperator
 {
-    public int IdAdmOperator { get; set; }
+    public int idAdmOperator { get; set; }
 
-    public string Cellphone { get; set; }
+    public string cellphone { get; set; }
 
-    public string Email { get; set; }
+    public string email { get; set; }
 }

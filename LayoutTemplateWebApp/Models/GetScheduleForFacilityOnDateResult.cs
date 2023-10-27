@@ -5,9 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LayoutTemplateWebApp.Models
 {
-    public partial class ReadClassroomByIDResult
+    public partial class GetScheduleForFacilityOnDateResult
     {
-        public string idClassroom { get; set; }
-        public string idFacilities { get; set; }
+        public TimeSpan? beginningHour { get; set; }
+        public TimeSpan? finishingHour { get; set; }
+        public string activityDescription { get; set; }
     }
 }

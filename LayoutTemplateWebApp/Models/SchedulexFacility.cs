@@ -7,15 +7,17 @@ namespace LayoutTemplateWebApp.Models;
 
 public partial class SchedulexFacility
 {
-    public int IdSchedulexFacility { get; set; }
+    public int idSchedulexFacility { get; set; }
 
-    public DateTime? Date { get; set; }
+    public DateTime? date { get; set; }
 
-    public TimeSpan? BeginningHour { get; set; }
+    public TimeSpan? beginningHour { get; set; }
 
-    public TimeSpan? FinishingHour { get; set; }
+    public TimeSpan? finishingHour { get; set; }
 
-    public int? IdFacilities { get; set; }
+    public string idFacilities { get; set; }
 
-    public virtual Facility IdFacilitiesNavigation { get; set; }
+    public string activityDescription { get; set; }
+
+    public virtual Facility idFacilitiesNavigation { get; set; }
 }

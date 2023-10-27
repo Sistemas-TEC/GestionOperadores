@@ -7,15 +7,19 @@ namespace LayoutTemplateWebApp.Models;
 
 public partial class SchedulexOperator
 {
-    public int IdSchedulexOperator { get; set; }
+    public int idSchedulexOperator { get; set; }
 
-    public DateTime? Day { get; set; }
+    public DateTime? day { get; set; }
 
-    public TimeSpan? BeginningHour { get; set; }
+    public TimeSpan? beginningHour { get; set; }
 
-    public TimeSpan? FinishingHour { get; set; }
+    public TimeSpan? finishingHour { get; set; }
 
-    public int? IdOperator { get; set; }
+    public int? idOperator { get; set; }
 
-    public virtual Operator IdOperatorNavigation { get; set; }
+    public string idFacility { get; set; }
+
+    public virtual Facility idFacilityNavigation { get; set; }
+
+    public virtual Operator idOperatorNavigation { get; set; }
 }
