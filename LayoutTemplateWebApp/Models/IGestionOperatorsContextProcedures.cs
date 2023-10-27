@@ -12,12 +12,14 @@ namespace LayoutTemplateWebApp.Models
 {
     public partial interface IGestionOperatorsContextProcedures
     {
+        Task<int> AssignOperatorSubstitution2Async(DateTime? day, TimeSpan? beginningHour, TimeSpan? finishingHour, int? idOperator, string idFacility, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> CreateAdmOperatorAsync(int? idAdmOperator, string cellphone, string email, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> CreateClassroomAsync(string idClassroom, int? idFacilities, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> CreateEquipmentAsync(int? idEquipment, bool? availability, string name, string description, int? idUser, string condition, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> CreateFacilityAsync(int? idFacilities, int? capacity, int? idUser, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> CreateLaboratoryAsync(string idLaboratory, int? idFacilities, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> CreateOperatorAsync(int? idOperator, string cellphone, string email, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> CreateScheduleXOperatorAsync(DateTime? day, TimeSpan? beginningHour, TimeSpan? finishingHour, int? idOperator, string idFacility, int? quantity, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> DeleteAdmOperatorAsync(int? idAdmOperator, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> DeleteClassroomAsync(string idClassroom, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> DeleteEquipmentAsync(int? idEquipment, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
@@ -26,12 +28,14 @@ namespace LayoutTemplateWebApp.Models
         Task<int> DeleteOperatorAsync(int? idOperator, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> deleteOperatorByEmailAsync(string email, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetOperatorsForFacilityOnDateResult>> GetOperatorsForFacilityOnDateAsync(DateTime? inputDate, string inputFacilityId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetScheduleForFacilityOnDateResult>> GetScheduleForFacilityOnDateAsync(DateTime? inputDate, string inputFacility, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> ModificarOperadorAsync(int? idOperador, string nuevoCellphone, string nuevoEmail, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<ReadAllAdmOperatorsResult>> ReadAllAdmOperatorsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<ReadAllClassroomsResult>> ReadAllClassroomsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<ReadAllEquipmentResult>> ReadAllEquipmentAsync(int? idEquipment, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<ReadAllFacilitiesResult>> ReadAllFacilitiesAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<ReadAllLaboratoriesResult>> ReadAllLaboratoriesAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<ReadAllOperatorsResult>> ReadAllOperatorsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<ReadClassroomByIDResult>> ReadClassroomByIDAsync(string idClassroom, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<ReadEquipmentResult>> ReadEquipmentAsync(int? idEquipment, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<ReadFacilityByIDResult>> ReadFacilityByIDAsync(int? idFacilities, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
@@ -42,5 +46,6 @@ namespace LayoutTemplateWebApp.Models
         Task<int> UpdateEquipmentAsync(int? idEquipment, bool? availability, string name, string description, int? idUser, string condition, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> UpdateFacilityAsync(int? idFacilities, int? capacity, int? idUser, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> UpdateLaboratoryAsync(string idLaboratory, int? idFacilities, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> updateOperatorAsync(int? idOperator, string newCellphone, string newEmail, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
     }
 }

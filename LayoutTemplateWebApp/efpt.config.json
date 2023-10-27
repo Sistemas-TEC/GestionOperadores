@@ -52,6 +52,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[AssignOperatorSubstitution2]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[CreateAdmOperator]",
          "ObjectType": 1
       },
@@ -73,6 +77,10 @@
       },
       {
          "Name": "[dbo].[CreateOperator]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[CreateScheduleXOperator]",
          "ObjectType": 1
       },
       {
@@ -108,6 +116,10 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[GetScheduleForFacilityOnDate]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[ModificarOperador]",
          "ObjectType": 1
       },
@@ -129,6 +141,10 @@
       },
       {
          "Name": "[dbo].[ReadAllLaboratories]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[ReadAllOperators]",
          "ObjectType": 1
       },
       {
@@ -169,6 +185,10 @@
       },
       {
          "Name": "[dbo].[UpdateLaboratory]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[updateOperator]",
          "ObjectType": 1
       }
    ],

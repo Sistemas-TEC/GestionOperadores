@@ -35,11 +35,13 @@ namespace LayoutTemplateWebApp.Models
         protected void OnModelCreatingGeneratedProcedures(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<GetOperatorsForFacilityOnDateResult>().HasNoKey().ToView(null);
+            modelBuilder.Entity<GetScheduleForFacilityOnDateResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<ReadAllAdmOperatorsResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<ReadAllClassroomsResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<ReadAllEquipmentResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<ReadAllFacilitiesResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<ReadAllLaboratoriesResult>().HasNoKey().ToView(null);
+            modelBuilder.Entity<ReadAllOperatorsResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<ReadClassroomByIDResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<ReadEquipmentResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<ReadFacilityByIDResult>().HasNoKey().ToView(null);
@@ -55,6 +57,57 @@ namespace LayoutTemplateWebApp.Models
         public GestionOperatorsContextProcedures(GestionOperatorsContext context)
         {
             _context = context;
+        }
+
+        public virtual async Task<int> AssignOperatorSubstitution2Async(DateTime? day, TimeSpan? beginningHour, TimeSpan? finishingHour, int? idOperator, string idFacility, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "day",
+                    Value = day ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Date,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "beginningHour",
+                    Value = beginningHour ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Time,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "finishingHour",
+                    Value = finishingHour ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Time,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "idOperator",
+                    Value = idOperator ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "idFacility",
+                    Size = 255,
+                    Value = idFacility ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[AssignOperatorSubstitution2] @day, @beginningHour, @finishingHour, @idOperator, @idFacility", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
         }
 
         public virtual async Task<int> CreateAdmOperatorAsync(int? idAdmOperator, string cellphone, string email, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
@@ -300,6 +353,63 @@ namespace LayoutTemplateWebApp.Models
             return _;
         }
 
+        public virtual async Task<int> CreateScheduleXOperatorAsync(DateTime? day, TimeSpan? beginningHour, TimeSpan? finishingHour, int? idOperator, string idFacility, int? quantity, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "day",
+                    Value = day ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Date,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "beginningHour",
+                    Value = beginningHour ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Time,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "finishingHour",
+                    Value = finishingHour ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Time,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "idOperator",
+                    Value = idOperator ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "idFacility",
+                    Size = 255,
+                    Value = idFacility ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "quantity",
+                    Value = quantity ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[CreateScheduleXOperator] @day, @beginningHour, @finishingHour, @idOperator, @idFacility, @quantity", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
         public virtual async Task<int> DeleteAdmOperatorAsync(int? idAdmOperator, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
@@ -518,6 +628,39 @@ namespace LayoutTemplateWebApp.Models
             return _;
         }
 
+        public virtual async Task<List<GetScheduleForFacilityOnDateResult>> GetScheduleForFacilityOnDateAsync(DateTime? inputDate, string inputFacility, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "inputDate",
+                    Value = inputDate ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Date,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "inputFacility",
+                    Size = 255,
+                    Value = inputFacility ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<GetScheduleForFacilityOnDateResult>("EXEC @returnValue = [dbo].[GetScheduleForFacilityOnDate] @inputDate, @inputFacility", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
         public virtual async Task<int> ModificarOperadorAsync(int? idOperador, string nuevoCellphone, string nuevoEmail, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
@@ -658,6 +801,26 @@ namespace LayoutTemplateWebApp.Models
                 parameterreturnValue,
             };
             var _ = await _context.SqlQueryAsync<ReadAllLaboratoriesResult>("EXEC @returnValue = [dbo].[ReadAllLaboratories]", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<List<ReadAllOperatorsResult>> ReadAllOperatorsAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<ReadAllOperatorsResult>("EXEC @returnValue = [dbo].[ReadAllOperators]", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 
@@ -993,6 +1156,46 @@ namespace LayoutTemplateWebApp.Models
                 parameterreturnValue,
             };
             var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[UpdateLaboratory] @idLaboratory, @idFacilities", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<int> updateOperatorAsync(int? idOperator, string newCellphone, string newEmail, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "idOperator",
+                    Value = idOperator ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "newCellphone",
+                    Size = 40,
+                    Value = newCellphone ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.NVarChar,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "newEmail",
+                    Size = 510,
+                    Value = newEmail ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.NVarChar,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[updateOperator] @idOperator, @newCellphone, @newEmail", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 

@@ -17,5 +17,7 @@ public partial class SchedulexFacility
 
     public string idFacilities { get; set; }
 
+    public string activityDescription { get; set; }
+
     public virtual Facility idFacilitiesNavigation { get; set; }
 }

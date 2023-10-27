@@ -32,6 +32,8 @@ public partial class GestionOperatorsContext : DbContext
     public virtual DbSet<SchedulexOperator> SchedulexOperators { get; set; }
 
     public virtual DbSet<GetOperatorsForFacilityOnDateResult> GetOperatorsForFacilityOnDateResults { get; set; }
+
+    public virtual DbSet<GetScheduleForFacilityOnDateResult> GetScheduleForFacilityOnDateResults { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<AdmOperator>(entity =>
@@ -134,6 +136,9 @@ public partial class GestionOperatorsContext : DbContext
 
             entity.ToTable("SchedulexFacility");
 
+            entity.Property(e => e.activityDescription)
+                .HasMaxLength(255)
+                .IsUnicode(false);
             entity.Property(e => e.beginningHour).HasPrecision(0);
             entity.Property(e => e.date).HasColumnType("date");
             entity.Property(e => e.finishingHour).HasPrecision(0);
