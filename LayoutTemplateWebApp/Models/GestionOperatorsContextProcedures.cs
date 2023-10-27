@@ -35,6 +35,7 @@ namespace LayoutTemplateWebApp.Models
         protected void OnModelCreatingGeneratedProcedures(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ChangeEquipmentDescriptionResult>().HasNoKey().ToView(null);
+            modelBuilder.Entity<GetAvailableEquipmentResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<GetOperatorsForFacilityOnDateResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<GetScheduleForFacilityOnDateResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<obtenerEquiposPrestadosResult>().HasNoKey().ToView(null);
@@ -675,6 +676,26 @@ namespace LayoutTemplateWebApp.Models
             return _;
         }
 
+        public virtual async Task<List<GetAvailableEquipmentResult>> GetAvailableEquipmentAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<GetAvailableEquipmentResult>("EXEC @returnValue = [dbo].[GetAvailableEquipment]", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
         public virtual async Task<List<GetOperatorsForFacilityOnDateResult>> GetOperatorsForFacilityOnDateAsync(DateTime? inputDate, string inputFacilityId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
@@ -1155,6 +1176,38 @@ namespace LayoutTemplateWebApp.Models
                 parameterreturnValue,
             };
             var _ = await _context.SqlQueryAsync<ReadOperatorResult>("EXEC @returnValue = [dbo].[ReadOperator] @idOperator", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<int> sp_UpdateEquipmentAvailabilityAsync(int? equipmentID, bool? newAvailability, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "equipmentID",
+                    Value = equipmentID ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "newAvailability",
+                    Value = newAvailability ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Bit,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[sp_UpdateEquipmentAvailability] @equipmentID, @newAvailability", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 

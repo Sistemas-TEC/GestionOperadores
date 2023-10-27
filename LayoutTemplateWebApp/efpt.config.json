@@ -120,6 +120,10 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[GetAvailableEquipment]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[GetOperatorsForFacilityOnDate]",
          "ObjectType": 1
       },
@@ -185,6 +189,10 @@
       },
       {
          "Name": "[dbo].[ReadOperator]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[sp_UpdateEquipmentAvailability]",
          "ObjectType": 1
       },
       {
