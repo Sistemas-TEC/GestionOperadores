@@ -1,0 +1,43 @@
+﻿.close-button {
+    width: 54px;
+    height: 54px;
+    border-radius: 100%;
+    background-color: var(--main-button-background-color);
+    border: 1px solid #000;
+    border-color: var(--input-border-color);
+    color: var(--main-button-font-color);
+    text-align: center;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 36px */
+    position: absolute;
+    right: 22px;
+    top: 22px;
+}
+
+.close-button:active{
+    font-size: 22px;
+}
+
+.main-button {
+    width: auto;
+    min-width: 280px;
+    height: 56px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    border-color: var(--input-border-color);
+    background: var(--main-button-background-color);
+    color: var(--main-button-font-color);
+    text-align: center;
+    font-family: Roboto;
+    font-size: var(--font-size-main-button); /* 24px */
+    line-height: var(--line-height-main-button); /* 36px */
+    font-style: normal;
+    font-weight: 400;
+}
+
+.main-button:active{
+    font-size: 22px;
+}

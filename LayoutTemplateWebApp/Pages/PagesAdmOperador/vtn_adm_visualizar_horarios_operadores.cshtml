@@ -1,0 +1,151 @@
+﻿@page "/AdminOperadores/Operadores/VerHorariosOperadores"
+@model LayoutTemplateWebApp.Pages.PagesAdmOperador.vtn_adm_visualizar_horarios_operadoresModel
+@{
+}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnAgregarOperador");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/AgregarOperador");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const eliminarOperador = document.getElementById("btnEliminarOperador");
+        eliminarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/EliminarOperador");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const actualizarOperador = document.getElementById("btnActualizarOperador");
+        actualizarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/ActualizarOperador");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const verHorariosOperadores = document.getElementById("btnVerHorariosOperadores");
+        verHorariosOperadores.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/VerHorariosOperadores");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const asignarSustitucion = document.getElementById("btnAsignarSustitucion");
+        asignarSustitucion.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/AsignarSustitucion");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+            const asignarHorario = document.getElementById("btnAsignarHorario");
+        asignarHorario.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/AsignarHorario");
+        })
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const buscar = document.getElementById("btnBuscar");
+        buscar.addEventListener("click", function () {
+            alert(instalacion);
+        })
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const asignarHorario = document.getElementById("btnVisualizarOperadores");
+        asignarHorario.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
+        })
+    });
+</script>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
+
+<style>
+    .center-main-button {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .main-info-container {
+        height: auto;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .main-info-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .grid-container {
+        display: flex;
+        border: 1px solid var(--color-font-sidebar);
+    }
+
+    .grid-container h3 {
+        width: 50%;
+    }
+
+    .parallel-container-2 form {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+</style>
+
+<div class="all-container">
+    <div class="sidebar-container">
+        <ul>
+            <li id="btnAgregarOperador">Agregar Operador</li>
+            <li id="btnEliminarOperador">Eliminar Operador</li>
+            <li id="btnActualizarOperador">Actualizar Datos Operador</li>
+            <li id="btnAsignarHorario">Asignar Horario</li>
+            <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
+            <li id="btnAsignarSustitucion">Asignar Sustitución</li>
+            <li id="btnVisualizarOperadores">Visualizar Operadores</li>
+        </ul>
+    </div>
+    <div class="xy-center">
+        <div class="main-info-container">
+            <button class="close-button" id="btnCerrar">X</button>
+            <h1>Horarios de operadores</h1>
+            <div class="parallel-container-2">
+                <form asp-page-handler="Buscar" method="post">
+                    <div class="small-input">
+                        <h3>Aula</h3>
+                        <select name="instalaciones" id="instalaciones">
+                            <option value="B3-1">B3-1</option>
+                            <option value="TM">TM</option>
+                            <option value="B6-1">B6-1</option>
+                            <option value="B6-2">B6-2</option>
+                        </select>
+                    </div>
+                    <div class="small-input">
+                        <h3>Fecha</h3>
+                        <input type="date" name="fecha"/>
+                    </div>
+                    <button type="submit" class="main-button" style="margin-top: 26px" id="btnBuscar">
+                        Buscar
+                    </button>
+                </form>
+                <div class="grid-container">
+                    <h3>Horario</h3>
+                    <h3 style="border-left: 2px solid black">Identificacion del operador</h3>
+                </div>
+                @if(Model.Results != null && Model.Results.Any())
+                {
+                    @foreach (var item in Model.Results)
+                    {
+                        <div class="grid-container">
+                            <h3>@item.beginningHour - @item.finishingHour</h3>
+                            <h3 style="border-left: 2px solid black">@item.idOperator</h3>
+                        </div>
+                    }
+                }
+                
+            </div>
+
+        </div>
+    </div>
+</div>

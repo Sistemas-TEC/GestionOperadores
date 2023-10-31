@@ -1,0 +1,222 @@
+﻿:root {
+    /*font sizes and line heights*/
+    --font-size-main-info-container-title: 36px; /*32px*/
+    --line-height-main-info-container-title: 54px; /*54px*/
+
+    --font-size-xy-center: 32px; /*32px*/
+    --line-height-xy-center: 48px; /*48px*/
+
+    --font-size-sidebar-li: 20px; /*20px*/
+    --line-height-sidebar-li: 30px; /*30px*/
+
+    --font-size-main-button: 24px;
+    --line-heigth-main-button: 36px;
+    --font-size-main-info-container-h3: 24px;
+    --line-height-main-info-container-h3: 28px;
+    --font-size-header-option: 16px;
+    --line-height-header-option: 24px;
+    --font-size-header-title: 20px;
+    --line-height-header-title: 30px;
+    
+    /*Colors*/
+    --header-background-color: rgba(180,9,9,0.1);
+    --header-font-color: rgba(0,0,0,1);
+    --main-info-container-background-color: rgba(180,9,9,0.20);
+    --h1-font-color: rgba(0,0,0,0.75);
+    --input-border-color: rgba(0,0,0,0.5);
+    --input-background-color: rgba(255,255,255,1);
+    --input-font-color: rgba(0,0,0,1);
+    --main-button-background-color: rgba(9, 180, 180, 0.35);
+    --main-button-font-color: rgba(0,0,0,1);
+    --input-logo-color: initial;
+    --color-font-sidebar: rgba(0,0,0,1);
+    --background-color-1: rgba(255,255,255,1);
+
+    /*Container sizes*/
+    --main-info-container-input-height: 54px;
+    
+    /*Calendar variables*/
+    --numDays: 5;
+    --numHours: 16;
+    --timeHeight: 60px;
+    --calBgColor: #fff1f8;
+    --eventBorderColor: #f2d3d8;
+    --eventColor1: #ffd6d1;
+    --eventColor2: #fafaa3;
+    --eventColor3: #e2f8ff;
+    --eventColor4: #d1ffe6;
+}
+
+.content-page{
+    background-color: var(--background-color-1);
+    color: var(--input-font-color);
+}
+
+.xy-center {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.xy-center h1 {
+    width: fit-content;
+    height: fit-content;
+    color: var(--h1-font-color);
+    text-align: center;
+    font-family: Roboto;
+    font-size: var(--font-size-xy-center);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--line-height-xy-center);
+}
+
+.main-info-container {
+    width: 1024px;
+    height: 576px;
+    border-radius: 16px;
+    border: 1px solid #000;
+    border-color: var(--input-border-color);
+    background-color: var(--main-info-container-background-color);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 22px;
+    position: relative;
+}
+
+.main-info-container h1 {
+    width: 100%;
+    color: var(--h1-font-color);
+    text-align: center;
+    font-family: Roboto;
+    font-size: var(--font-size-main-info-container-title);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--line-height-main-info-container-title);
+}
+
+.main-info-container h3 {
+    color: var(--h1-font-color);
+    font-family: Roboto;
+    font-size: var(--font-size-main-info-container-h3);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--line-height-main-info-container-h3); /* 36px */
+    margin: 0;
+}
+
+.center-form{
+    width: 100%;
+    height: auto;
+    padding-left: 180px;
+    padding-right: 180px;
+}
+
+.center-form .big-input{
+    width: 100%;
+    height: var(--main-info-container-input-height);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.50);
+    border-color: var(--input-border-color);
+    background-color: var(--input-background-color);
+    color: var(--input-font-color);
+    font-family: Roboto;
+    font-size: var(--font-size-main-info-container-h3);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--line-height-main-info-container-h3); /* 36px */
+}
+
+.center-form .big-input::placeholder{
+    color: var(--input-font-color);
+}
+
+.center-form .small-input{
+    width: 48%;
+    height: auto;
+}
+
+.center-form .small-input input{
+    width: 100%;
+    height: var(--main-info-container-input-height);
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-color: var(--input-border-color);
+    background-color: var(--input-background-color);
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: var(--font-size-main-info-container-h3);
+    line-height: var(--line-height-main-info-container-h3);
+    color: var(--input-font-color);
+}
+
+.center-form input::-webkit-calendar-picker-indicator{
+    filter: var(--input-logo-color);
+}
+
+.center-form .small-input select{
+    width: 100%;
+    height: var(--main-info-container-input-height);
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-color: var(--input-border-color);
+    background-color: var(--input-background-color);
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: var(--font-size-main-info-container-h3);
+    line-height: var(--line-height-main-info-container-h3);
+    color: var(--input-font-color);
+}
+
+.center-form .parallel-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-info-container .parallel-container{
+    display:flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.parallel-container-2 .small-input{
+    width: 30%;
+    height: auto;
+}
+
+.parallel-container-2 .small-input input{
+    width: 100%;
+    height: var(--main-info-container-input-height);
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-color: var(--input-border-color);
+    background-color: var(--input-background-color);
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: var(--font-size-main-info-container-h3);
+    line-height: var(--line-height-main-info-container-h3);
+    color: var(--input-font-color);
+}
+
+.parallel-container-2 input::-webkit-calendar-picker-indicator{
+    filter: var(--input-logo-color);
+}
+
+.parallel-container-2 .small-input select{
+    width: 100%;
+    height: var(--main-info-container-input-height);
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-color: var(--input-border-color);
+    background-color: var(--input-background-color);
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: var(--font-size-main-info-container-h3);
+    line-height: var(--line-height-main-info-container-h3);
+    color: var(--input-font-color);
+}
+
+.input-container-margin {
+    margin-top: 20px;
+}

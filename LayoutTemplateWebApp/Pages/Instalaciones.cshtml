@@ -1,0 +1,64 @@
+﻿@page 
+@model LayoutTemplateWebApp.Pages.InstalacionesModel
+@{
+}
+
+<style>
+    .xy-center{
+        width: 100%;
+        /*height: 100%;*/
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        background-color: var(--background-color-1);
+    }
+    .xy-center h1{
+        width: fit-content;
+        height: fit-content;
+
+        color: var(--input-font-color);
+        text-align: center;
+        font-family: Roboto;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const consultarHorarios = document.getElementById("btnPrestarInstalacion");
+        consultarHorarios.addEventListener("click", function(){
+            window.location.assign("/Operadores/Instalaciones/Prestar-Instalacion");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        const consultarHorarios = document.getElementById("btnLiberarInstalacion");
+        consultarHorarios.addEventListener("click", function(){
+            window.location.assign("/Operadores/Instalaciones/Liberar-Instalacion")
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        const consultarHorarios = document.getElementById("btnConsultarHorariosInstalaciones");
+        consultarHorarios.addEventListener("click", function(){
+            window.location.assign("/Operadores/Instalaciones/Horarios-Instalaciones")
+        });
+    });
+</script>
+
+<div class="all-container">
+    <div class="sidebar-container">
+        <ul>
+            <li id="btnPrestarInstalacion">Prestar Instalación</li>
+            <li id="btnLiberarInstalacion">Liberar Instalación</li>
+            <li id="btnConsultarHorariosInstalaciones">Consultar Horarios Instalaciones</li>
+        </ul>
+    </div>
+    <div class="xy-center">
+        <h1>
+            Bienvenido a la sección de instalaciones<br/>
+            Seleccione la funcionalidad que desee utilizar en el menú de la izquierda 
+        </h1>
+    </div>
+</div>

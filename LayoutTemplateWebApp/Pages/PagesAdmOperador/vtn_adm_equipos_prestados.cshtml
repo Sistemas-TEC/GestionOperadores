@@ -1,0 +1,75 @@
+﻿@page "/AdminOperadores/Equipos/EquiposPrestados"
+@model LayoutTemplateWebApp.Pages.PagesAdmOperador.vtn_adm_equipos_prestadosModel
+@{
+}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnAgregarEquipo");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/AgregarEquipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnEliminarEquipo");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/EliminarEquipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnPrestarEquipo");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/PrestarEquipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnDevolverEquipo");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/DevolverEquipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnReportarEquipo");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/ReportarEquipo");
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        const agregarOperador = document.getElementById("btnEquiposPrestados");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/EquiposPrestados");
+        });
+    });
+</script>
+
+<div class="all-container">
+    <div class="sidebar-container">
+        <ul>
+            <li id="btnAgregarEquipo">Agregar Equipo</li>
+            <li id="btnEliminarEquipo">Eliminar Equipo</li>
+            <li id="btnPrestarEquipo">Prestar Equipo</li>
+            <li id="btnDevolverEquipo">Devolver Equipo</li>
+            <li id="btnReportarEquipo">Reportar Equipo Dañado</li>
+            <li id="btnEquiposPrestados">Equipos Prestados Actualmente</li>
+        </ul>
+    </div>
+    <div class="xy-center">
+        <div class="main-info-container">
+            <h1>Listado de equipos prestados</h1>
+            <ul>
+                @foreach (var prestado in Model.equiposPrestados)
+                {
+                    <li>
+                        ID: @prestado.idEquipment, Nombre: @prestado.name, Descripción: @prestado.description
+                    </li>
+                }
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .main-info-container {
+        height: auto;
+    }
+</style>
