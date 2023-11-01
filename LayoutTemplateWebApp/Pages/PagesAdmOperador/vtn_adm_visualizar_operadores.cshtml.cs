@@ -24,5 +24,20 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
             }
             
         }
+        public async Task OnPostEliminarOperador()
+        {
+            int idOperator = Convert.ToInt32(Request.Form["idOperator"]);
+            using (var context = _gestionOperatorsContext)
+            {
+                var result = context.Database.ExecuteSqlRaw("EXEC DeleteOperator {0}", idOperator);
+            }
+        }
+        public void call_delete_operator(int idOperator)
+        {
+            using (var context = _gestionOperatorsContext)
+            {
+                var result = context.Database.ExecuteSqlRaw("EXEC DeleteOperator {0}", idOperator);
+            }
+        }
     }
 }

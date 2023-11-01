@@ -67,18 +67,24 @@
 </script>
 
 <style>
+    .xy-center{
+        padding-top: 150px;
+    }
     .main-info-container{
         height: auto;
     }
     .grid-container{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 160px 320px 220px 280px;*/
     }
     .grid-item{
         border: 1px solid var(--color-font-sidebar);
         padding: 10px;
         font-family: Roboto;
         font-size: var(--font-size-sidebar-li);
+    }
+    .main-button{
+        min-width: 45%;
     }
 </style>
 
@@ -111,6 +117,7 @@
                 <div class="grid-item">Id del operador</div>
                 <div class="grid-item">Email del operador</div>
                 <div class="grid-item">Teléfono del operador</div>
+                <div class="grid-item">Funcionalidad</div>
             </div>
 
             @if(Model.Results != null && Model.Results.Any())
@@ -121,6 +128,16 @@
                             <div class="grid-item">@item.idOperator</div>
                             <div class="grid-item">@item.email</div>
                             <div class="grid-item">@item.cellphone</div>
+                            <div class="grid-item" style="display:flex">
+                                <form asp-page-handler="EliminarOperador" method="post">
+                                    <input type="hidden" name="idOperator" value="@item.idOperator"/>
+                                    <button class="main-button" id="btnEliminarOperador">Eliminar</button>
+                                </form>
+                                <form style="margin-left: 10px">
+                                    <input type="hidden" name="idOperator" value="@item.idOperator"/>
+                                    <button class="main-button" id="btnActualizarOperador">Actualizar</button>
+                                </form>
+                            </div>
                         </div>
                     }
                 }
