@@ -10,18 +10,18 @@
             window.location.assign("/AdminOperadores/Operadores/AgregarOperador");
         });
     });
-    document.addEventListener("DOMContentLoaded", function () {
+    /*document.addEventListener("DOMContentLoaded", function () {
         const eliminarOperador = document.getElementById("btnEliminarOperador");
         eliminarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/EliminarOperador");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+    });*/
+    /*document.addEventListener("DOMContentLoaded", function () {
         const actualizarOperador = document.getElementById("btnActualizarOperador");
         actualizarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/ActualizarOperador");
         });
-    });
+    });*/
     document.addEventListener("DOMContentLoaded", function () {
         const verHorariosOperadores = document.getElementById("btnVerHorariosOperadores");
         verHorariosOperadores.addEventListener("click", function () {
@@ -64,11 +64,18 @@
             window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
         })
     });
+    function showAlert(message){
+        alert(message);
+    };
 </script>
 
 <style>
+    .all-container{
+        height:auto;
+    }
     .xy-center{
-        padding-top: 150px;
+        padding-top: 30px;
+        height:auto;
     }
     .main-info-container{
         height: auto;
@@ -84,7 +91,7 @@
         font-size: var(--font-size-sidebar-li);
     }
     .main-button{
-        min-width: 45%;
+        min-width: 70%;
     }
 </style>
 
@@ -99,8 +106,8 @@
     <div class="sidebar-container">
         <ul>
             <li id="btnAgregarOperador">Agregar Operador</li>
-            <li id="btnEliminarOperador">Eliminar Operador</li>
-            <li id="btnActualizarOperador">Actualizar Datos Operador</li>
+            <!--<li id="btnEliminarOperador">Eliminar Operador</li>-->
+            <!--<li id="btnActualizarOperador">Actualizar Datos Operador</li>-->
             <li id="btnAsignarHorario">Asignar Horario</li>
             <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
             <li id="btnAsignarSustitucion">Asignar Sustitución</li>
@@ -133,7 +140,7 @@
                                     <input type="hidden" name="idOperator" value="@item.idOperator"/>
                                     <button class="main-button" id="btnEliminarOperador">Eliminar</button>
                                 </form>
-                                <form style="margin-left: 10px">
+                                <form asp-page-handler="ActualizarOperador" method="post" style="margin-left:35px">
                                     <input type="hidden" name="idOperator" value="@item.idOperator"/>
                                     <button class="main-button" id="btnActualizarOperador">Actualizar</button>
                                 </form>

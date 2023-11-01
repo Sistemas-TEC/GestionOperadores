@@ -8,8 +8,14 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
     public class vtn_adm_actualizar_operadorModel : PageModel
     {
         private readonly GestionOperatorsContext _gestionOperatorsContext;
-        public void OnGet()
+        //public int id = 0;
+        /*public void OnGet()
         {
+            ViewData["id"] = id;
+        }*/
+        public void OnGet(int id = 0)
+        {
+            ViewData["id"] = id;
         }
         public vtn_adm_actualizar_operadorModel(GestionOperatorsContext gestionOperatorsContext)
         {
