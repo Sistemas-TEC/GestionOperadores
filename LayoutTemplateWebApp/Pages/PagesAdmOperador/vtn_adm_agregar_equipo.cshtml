@@ -47,15 +47,21 @@
     });
 </script>
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
             <li id="btnAgregarEquipo">Agregar Equipo</li>
-            <li id="btnEliminarEquipo">Eliminar Equipo</li>
-            <li id="btnPrestarEquipo">Prestar Equipo</li>
-            <li id="btnDevolverEquipo">Devolver Equipo</li>
+            <li id="btnEliminarEquipo">Listado de Equipos</li>
+            <!--<li id="btnPrestarEquipo">Prestar Equipo</li>-->
+            <!--<li id="btnDevolverEquipo">Devolver Equipo</li>-->
             <li id="btnReportarEquipo">Reportar Equipo Dañado</li>
-            <li id="btnEquiposPrestados">Equipos Prestados Actualmente</li>
+            <!--<li id="btnEquiposPrestados">Equipos Prestados Actualmente</li>-->  
         </ul>
     </div>
     <div class="xy-center">

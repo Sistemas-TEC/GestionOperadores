@@ -53,15 +53,21 @@
     });
 </script>
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
             <li id="btnAgregarEquipo">Agregar Equipo</li>
-            <li id="btnEliminarEquipo">Eliminar Equipo</li>
-            <li id="btnPrestarEquipo">Prestar Equipo</li>
-            <li id="btnDevolverEquipo">Devolver Equipo</li>
+            <li id="btnEliminarEquipo">Listado de Equipos</li>
+            <!--<li id="btnPrestarEquipo">Prestar Equipo</li>-->
+            <!--<li id="btnDevolverEquipo">Devolver Equipo</li>-->
             <li id="btnReportarEquipo">Reportar Equipo Dañado</li>
-            <li id="btnEquiposPrestados">Equipos Prestados Actualmente</li>
+            <!--<li id="btnEquiposPrestados">Equipos Prestados Actualmente</li>-->
         </ul>
     </div>
     <div class="xy-center">
@@ -72,15 +78,15 @@
             <form asp-page-handler="ReportarEquipo" method="post">
 
                 <div class="center-form input-container-margin">
-                    <h3>Número de carnet</h3>
-                    <input type="number" class="big-input" placeholder="Ingrese el número de carnet del operador a modificar" name="id" />
+                    <h3>Equipo de equipo</h3>
+                    <input type="number" class="big-input" placeholder="Ingrese el id del equipo a modificar" name="id" />
 
                 </div>
 
 
                 <div class="center-form input-container-margin" style="margin-top:50px">
                     <h3>Descripcion</h3>
-                    <input type="text" class="big-input" placeholder="Ingrese el nuevo correo del operador" name="description" />
+                    <input type="text" class="big-input" placeholder="Ingrese la nueva descripcion" name="description" />
 
                 </div>
 

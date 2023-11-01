@@ -51,12 +51,5 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
             int idOperator = Convert.ToInt32(Request.Form["idOperator"]);
             return Redirect($"/AdminOperadores/Operadores/ActualizarOperador/{idOperator}");
         }
-        public void call_delete_operator(int idOperator)
-        {
-            using (var context = _gestionOperatorsContext)
-            {
-                var result = context.Database.ExecuteSqlRaw("EXEC DeleteOperator {0}", idOperator);
-            }
-        }
     }
 }

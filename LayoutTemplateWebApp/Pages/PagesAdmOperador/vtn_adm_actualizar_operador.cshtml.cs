@@ -32,6 +32,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 using (var context = _gestionOperatorsContext)
                 {
                     var result = context.Database.ExecuteSqlRaw("EXEC updateOperator {0}, {1}, {2}", id, cellphone, email);
+                    TempData["ErrorMessage"] = "Operador actualizado con exito.";
                 }
             }
             catch (Exception ex)

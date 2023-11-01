@@ -40,7 +40,12 @@
         });
     });
 </script>
-
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
@@ -55,11 +60,31 @@
     <div class="xy-center">
         <div class="main-info-container">
             <h1>Listado de equipos prestados</h1>
+            <div class="grid-container">
+                <div class="grid-item">Id Equipo</div>
+                <div class="grid-item">Nombre</div>
+                <div class="grid-item">Descripcion</div>
+                <div class="grid-item">Funciones</div>
+            </div>
             <ul>
                 @foreach (var prestado in Model.equiposPrestados)
                 {
                     <li>
-                        ID: @prestado.idEquipment, Nombre: @prestado.name, Descripción: @prestado.description
+                        <div class="grid-container">
+                            <div class="grid-item">@prestado.idEquipment</div>
+                            <div class="grid-item">@prestado.name</div>
+                            <div class="grid-item">@prestado.description</div>
+                            <div class="grid-item" style="display:flex">
+                                <form asp-page-handler="EliminarEquipo" method="post">
+                                    <input type="hidden" name="idEquipment" value="@prestado.idEquipment" />
+                                    <button class="main-button" id="btnEliminarOperador">Eliminar</button>
+                                </form>
+                                <form asp-page-handler="LiberarEquipo" method="post" style="margin-left:15px">
+                                    <input type="hidden" name="idEquipment" value="@prestado.idEquipment" />
+                                    <button class="main-button" id="btnActualizarOperador">Liberar</button>
+                                </form>
+                            </div>
+                        </div>
                     </li>
                 }
             </ul>
@@ -71,5 +96,23 @@
 <style>
     .main-info-container {
         height: auto;
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: 160px 320px 220px 280px;*/
+    }
+    .grid-item{
+        border: 1px solid var(--color-font-sidebar);
+        padding: 10px;
+        font-family: Roboto;
+        font-size: var(--font-size-sidebar-li);
+    }
+    ul{
+        list-style:none;
+        padding-left: 0;
+    }
+
+    .main-button {
+        min-width: 120px;
     }
 </style>

@@ -2,7 +2,12 @@
 @model LayoutTemplateWebApp.Pages.PagesAdmOperador.vtn_adm_visualizar_operadoresModel
 @{
 }
-
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const agregarOperador = document.getElementById("btnAgregarOperador");

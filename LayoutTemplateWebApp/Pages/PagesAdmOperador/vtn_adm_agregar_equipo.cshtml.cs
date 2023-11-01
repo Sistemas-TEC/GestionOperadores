@@ -36,7 +36,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 {
                     var result = context.Database.ExecuteSqlRaw("EXEC CreateEquipment {0}, {1}, {2}, {3}, {4}, {5}", idEquipment, availability, name, description, idUser, condition);
                 }
-                TempData["SuccessMessage"] = "Equipo agregado exitosamente";  // Corrección de mensaje
+                TempData["ErrorMessage"] = "Equipo agregado exitosamente";  // Correcciï¿½n de mensaje
 
             }
             catch (Exception ex)

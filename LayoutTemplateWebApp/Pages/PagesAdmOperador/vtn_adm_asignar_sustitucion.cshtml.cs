@@ -35,7 +35,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 using (var context = _gestionOperatorsContext)
                 {
                     var result = context.Database.ExecuteSqlRaw("EXEC AssignOperatorSubstitution2 {0}, {1}, {2}, {3}, {4}", fecha, entradaTimeSpan, salidaTimeSpan, carnet, idFacility);
-                    //TempData["ErrorMessage"] = result;
+                    TempData["ErrorMessage"] = "Sustitucion asignada con exito.";
                 }
             }
             catch (Exception ex)

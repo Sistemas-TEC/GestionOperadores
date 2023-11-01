@@ -48,7 +48,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 {
                     var result = context.Database.ExecuteSqlRaw("EXEC sp_UpdateEquipmentAvailability {0}, {1}", idEquipo, estado);
                 }
-                TempData["SuccessMessage"] = "Operador agregado exitosamente";  // Corrección de mensaje
+                TempData["SuccessMessage"] = "Equipo devuelto exitosamente";  // Correcciï¿½n de mensaje
 
             }
             catch (Exception ex)
