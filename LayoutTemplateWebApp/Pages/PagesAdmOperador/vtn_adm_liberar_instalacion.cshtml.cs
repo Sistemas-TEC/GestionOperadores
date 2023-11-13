@@ -41,7 +41,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
             }
             catch(Exception ex) 
             {
-                TempData["ErrorMessage"] = "No se pudo prestar la instalacion. Error: " + ex.Message;
+                TempData["ErrorMessage"] = "Error al liberar la instalacion. Error: " + ex.Message;
             }
             return Page();
         }

@@ -1,5 +1,5 @@
 ﻿@{
-    var userType = "operador";
+    var userType = "admin";
     ViewData["userType"] = userType;
 }
 
@@ -24,7 +24,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-colorMainTrans">
             <div class="container-fluid align-middle">
-                <div class="align-middle">
+                <div class="align-middle" tabindex="1">
                     <a class="navbar-brand header-title-font" asp-area="" asp-page="/Index">
                         @* //This could be the link to the inicial app page *@
                         <i class="bi bi-mortarboard-fill"></i>
@@ -43,36 +43,36 @@
                         @if(userType == "operador")
                         {
                             <li class="nav-item">
-                                <a class="nav-link @(option2IsActive ? "active" : "")" asp-area="" asp-page="/Instalaciones">Instalaciones</a>
+                                <a class="nav-link @(option2IsActive ? "active" : "")" asp-area="" asp-page="/Instalaciones" tabindex="2">Instalaciones</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @(option3IsActive ? "active" : "")" asp-area="" asp-page="/Equipo">Equipo</a>
+                                <a class="nav-link @(option3IsActive ? "active" : "")" asp-area="" asp-page="/Equipo" tabindex="3">Equipo</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @(option1IsActive ? "active" : "")" asp-area="" asp-page="/Operadores">Operadores</a>
+                                <a class="nav-link @(option1IsActive ? "active" : "")" asp-area="" asp-page="/Operadores" tabindex="4">Operadores</a>
                             </li>
                         }
                         else if(userType == "admin")
                         {
                             <li class="nav-item">
-                                <a class="nav-link @(option2IsActive ? "active" : "")" asp-area="" asp-page="/admOperadores-Operadores">Operadores</a>
+                                <a class="nav-link @(option2IsActive ? "active" : "")" asp-area="" asp-page="/admOperadores-Operadores" tabindex="2">Operadores</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link @(option3IsActive ? "active" : "")" asp-area="" asp-page="/admOperadores-Instalaciones">Instalaciones</a>
+                                <a class="nav-link @(option3IsActive ? "active" : "")" asp-area="" asp-page="/admOperadores-Instalaciones" tabindex="3">Instalaciones</a>
                             </li>
                             <!--<li class="nav-item">
                                 <a class="nav-link @(option1IsActive ? "active" : "")" asp-area="" asp-page="/Operadores">Actividades</a>
                             </li>-->
                             <li class="nav-item">
-                                <a class="nav-link @(option1IsActive ? "active" : "")" asp-area="" asp-page="/admOperadores-Equipo">Equipos</a>
+                                <a class="nav-link @(option1IsActive ? "active" : "")" asp-area="" asp-page="/admOperadores-Equipo" tabindex="4">Equipos</a>
                             </li>
                         }
                     </ul>
                 </div>
-                <button class="header-button" id="btnDecreaseFontSize"><img src="~/images/font-size-decrease-icon.png"/></button>
-                <button class="header-button" id="btnIncreaseFontSize"><img src="~/images/font-size-increase-icon.png" /></button>
-                <button class="header-button" id="btnHighContrastMode"><img src="~/images/eye-fill.svg" /></button>
-                <div class="icon-Profile bg-footer text-center align-middle fs-3 text-white">
+                <button class="header-button" id="btnDecreaseFontSize" tabindex="5"><img src="~/images/font-size-decrease-icon.png" /></button>
+                <button class="header-button" id="btnIncreaseFontSize" tabindex="6"><img src="~/images/font-size-increase-icon.png" /></button>
+                <button class="header-button" id="btnHighContrastMode" tabindex="7"><img src="~/images/eye-fill.svg" /></button>
+                <div class="icon-Profile bg-footer text-center align-middle fs-3 text-white" tabindex="8">
                     <i class="bi bi-person"></i>
                 </div>
 

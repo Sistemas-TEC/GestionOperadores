@@ -10,68 +10,48 @@
 }
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        function handleButtonClick(event) {
+            // Check if the key pressed is the "Enter" key (key code 13)
+            if (event.keyCode === 13) {
+                event.target.click(); // Trigger the click event
+            }
+        }
+
         const agregarOperador = document.getElementById("btnAgregarOperador");
         agregarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/AgregarOperador");
         });
-    });
-    /*document.addEventListener("DOMContentLoaded", function () {
-        const eliminarOperador = document.getElementById("btnEliminarOperador");
-        eliminarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Operadores/EliminarOperador");
-        });
-    });*/
-    /*document.addEventListener("DOMContentLoaded", function () {
-        const actualizarOperador = document.getElementById("btnActualizarOperador");
-        actualizarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Operadores/ActualizarOperador");
-        });
-    });*/
-    document.addEventListener("DOMContentLoaded", function () {
+        agregarOperador.addEventListener("keypress", handleButtonClick);
+
         const verHorariosOperadores = document.getElementById("btnVerHorariosOperadores");
         verHorariosOperadores.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/VerHorariosOperadores");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+        verHorariosOperadores.addEventListener("keypress", handleButtonClick);
+
         const asignarSustitucion = document.getElementById("btnAsignarSustitucion");
         asignarSustitucion.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/AsignarSustitucion");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const consultarHorarios = document.getElementById("btnCerrar");
-        consultarHorarios.addEventListener("click", function () {
-            window.location.assign("/admOperadores-Operadores");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const consultarHorarios = document.getElementById("btnCancelar");
-        consultarHorarios.addEventListener("click", function () {
-            window.location.assign("/admOperadores-Operadores");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const consultarHorarios = document.getElementById("btnActualizar");
-        consultarHorarios.addEventListener("click", function () {
-            alert("Actualizar")
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+        asignarSustitucion.addEventListener("keypress", handleButtonClick);
+
         const asignarHorario = document.getElementById("btnAsignarHorario");
         asignarHorario.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/AsignarHorario");
-        })
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const asignarHorario = document.getElementById("btnVisualizarOperadores");
-        asignarHorario.addEventListener("click", function () {
+        });
+        asignarHorario.addEventListener("keypress", handleButtonClick);
+
+        const visualizarOperadores = document.getElementById("btnVisualizarOperadores");
+        visualizarOperadores.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
+        });
+        visualizarOperadores.addEventListener("keypress", handleButtonClick);
+
+        const cancelar = document.getElementById("btnCancelar");
+        cancelar.addEventListener("click", function () {
+            window.location.assign("/admOperadores-Operadores")
         })
     });
-    function showAlert(message){
-        alert(message);
-    };
 </script>
 
 <style>
@@ -100,54 +80,45 @@
     }
 </style>
 
-@if (TempData["ErrorMessage"] != null)
-{
-    <script>
-        alert("@TempData["ErrorMessage"]");
-    </script>
-}
-
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
-            <li id="btnAgregarOperador">Agregar Operador</li>
-            <!--<li id="btnEliminarOperador">Eliminar Operador</li>-->
-            <!--<li id="btnActualizarOperador">Actualizar Datos Operador</li>-->
-            <li id="btnAsignarHorario">Asignar Horario</li>
-            <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
-            <li id="btnAsignarSustitucion">Asignar Sustitución</li>
-            <li id="btnVisualizarOperadores">Visualizar Operadores</li>
+            <li id="btnAgregarOperador" tabindex="10">Agregar Operador</li>
+            <li id="btnAsignarHorario" tabindex="11">Asignar Horario</li>
+            <li id="btnVerHorariosOperadores" tabindex="12">Visualizar Horarios Operadores</li>
+            <li id="btnAsignarSustitucion" tabindex="13">Asignar Sustitución</li>
+            <li id="btnVisualizarOperadores" tabindex="14">Visualizar Operadores</li>
         </ul>
     </div>
     <div class="xy-center">
         <div class="main-info-container">
-            <button class="close-button" id="btnCerrar">X</button>
+            <button class="close-button" id="btnCancelar" tabindex="16" aria-label="Volver a pestaña de administración de operadores">X</button>
 
-            <h1>Visualizar operadores</h1>
+            <h1 tabindex="15">Visualizar operadores</h1>
 
             <div class="grid-container">
-                <div class="grid-item">Id del operador</div>
-                <div class="grid-item">Email del operador</div>
-                <div class="grid-item">Teléfono del operador</div>
-                <div class="grid-item">Funcionalidad</div>
+                <div class="grid-item" tabindex="17">Id del operador</div>
+                <div class="grid-item" tabindex="18">Email del operador</div>
+                <div class="grid-item" tabindex="19">Teléfono del operador</div>
+                <div class="grid-item" tabindex="20">Funcionalidad</div>
             </div>
 
             @if(Model.Results != null && Model.Results.Any())
                 {
                     @foreach (var item in Model.Results)
                     {
-                        <div class="grid-container">
+                        <div class="grid-container" tabindex="21" aria-label="@item.idOperator @item.email" @item.cellphone>
                             <div class="grid-item">@item.idOperator</div>
                             <div class="grid-item">@item.email</div>
                             <div class="grid-item">@item.cellphone</div>
                             <div class="grid-item" style="display:flex">
                                 <form asp-page-handler="EliminarOperador" method="post">
                                     <input type="hidden" name="idOperator" value="@item.idOperator"/>
-                                    <button class="main-button" id="btnEliminarOperador">Eliminar</button>
+                                    <button class="main-button" id="btnEliminarOperador" tabindex="21.1">Eliminar</button>
                                 </form>
                                 <form asp-page-handler="ActualizarOperador" method="post" style="margin-left:35px">
                                     <input type="hidden" name="idOperator" value="@item.idOperator"/>
-                                    <button class="main-button" id="btnActualizarOperador">Actualizar</button>
+                                    <button class="main-button" id="btnActualizarOperador" tabindex="21.2">Actualizar</button>
                                 </form>
                             </div>
                         </div>

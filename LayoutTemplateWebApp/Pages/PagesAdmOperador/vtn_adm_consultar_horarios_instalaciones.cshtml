@@ -5,28 +5,35 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        function handleButtonClick(event) {
+            // Check if the key pressed is the "Enter" key (key code 13)
+            if (event.keyCode === 13) {
+                event.target.click(); // Trigger the click event
+            }
+        }
         const agregarOperador = document.getElementById("btnPrestarInstalacion");
         agregarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Instalaciones/PrestarInstalacion");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+        agregarOperador.addEventListener("keypress", handleButtonClick);
+
         const eliminarOperador = document.getElementById("btnLiberarInstalacion");
         eliminarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Instalaciones/LiberarInstalacion");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+        eliminarOperador.addEventListener("keypress", handleButtonClick);
+
         const actualizarOperador = document.getElementById("btnConsultarHorariosInstalaciones");
         actualizarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Instalaciones/HorariosInstalaciones");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const cerrar = document.getElementById("btnCerrar");
-        cerrar.addEventListener("click", function () {
-            window.location.assign("/admOperadores-Instalaciones/");
-        })
+        actualizarOperador.addEventListener("keypress", handleButtonClick);
+
+        const cerrarPestanaOperadores = document.getElementById("btnCancelarOperador");
+        cerrarPestanaOperadores.addEventListener("click", function () {
+            window.location.assign("/admOperadores-Instalaciones")
+        });
+        cerrarPestanaOperadores.addEventListener("keypress", handleButtonClick);
     });
 </script>
 
@@ -61,21 +68,21 @@
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
-            <li id="btnPrestarInstalacion">Prestar Instalación</li>
-            <li id="btnLiberarInstalacion">Liberar Instalación</li>
-            <li id="btnConsultarHorariosInstalaciones">Consultar Horarios Instalaciones</li>            
+            <li id="btnPrestarInstalacion" tabindex="10">Prestar Instalación</li>
+            <li id="btnLiberarInstalacion" tabindex="11">Liberar Instalación</li>
+            <li id="btnConsultarHorariosInstalaciones" tabindex="12">Consultar Horarios Instalaciones</li>
         </ul>
     </div>
     <div class="xy-center">
         <div class="main-info-container">
-            <button class="close-button" id="btnCerrar">X</button>
-            <h1>Horarios de instalaciones</h1>
+            <button class="close-button" id="btnCancelar" tabindex="13" aria-label="Volver a la ventana principal de administración de instalaciones">X</button>
+            <h1 tabindex="14">Horarios de instalaciones</h1>
 
             <form asp-page-handler="Buscar" method="post">
                 <div class="parallel-container-2">
                     <div class="small-input">
                         <h3>Aula</h3>
-                        <select name="instalaciones" id="instalaciones">
+                        <select name="instalaciones" id="instalaciones" tabindex="15" aria-label="Seleccione la instalación a consultar">
                             <option value="B3-01">B3-01</option>
                             <option value="B3-03">B3-03(AZUL)</option>
                             <option value="B3-04">B3-04(VERDE)</option>
@@ -93,24 +100,24 @@
                     </div>
                     <div class="small-input">
                         <h3>Fecha</h3>
-                        <input type="date" name="fecha"/>
+                        <input type="date" name="fecha" tabindex="16" aria-label="Seleccione la fecha a consultar"/>
                     </div>
 
-                    <button class="main-button" style="margin-top: 26px" type="submit">
+                    <button class="main-button" style="margin-top: 26px" type="submit" tabindex="17">
                         Buscar
                     </button>
                 </div>
             </form>
 
             <div class="grid-container">
-                <h3>Horario</h3>
-                <h3 style="border-left: 2px solid var(--input-border-color)">Actividad</h3>
+                <h3 tabindex="18">Horario</h3>
+                <h3 style="border-left: 2px solid var(--input-border-color)" tabindex="19">Actividad</h3>
             </div>
             @if(Model.results != null && Model.results.Any())
                 {
                     @foreach (var item in Model.results)
                     {
-                        <div class="grid-container">
+                        <div class="grid-container" tabindex="20">
                             <h3>@item.beginningHour - @item.finishingHour</h3>
                             <h3 style="border-left: 2px solid black">@item.activityDescription</h3>
                         </div>

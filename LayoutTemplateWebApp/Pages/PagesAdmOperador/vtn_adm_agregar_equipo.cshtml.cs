@@ -29,7 +29,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 bool availability = Convert.ToBoolean(Request.Form["disponibilidadEquipo"]);
                 string name = Request.Form["nameEquipo"];
                 string description = Request.Form["descripcionInput"];
-                int idUser = Convert.ToInt32(Request.Form["idUsuario"]);
+                int idUser = 0;
                 string condition = Request.Form["CondicionEquipo"];
 
                 using (var context = _gestionOperatorsContext)

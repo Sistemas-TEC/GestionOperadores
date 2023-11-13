@@ -3,64 +3,47 @@
 @{
 }
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
+        function handleButtonClick(event) {
+            // Check if the key pressed is the "Enter" key (key code 13)
+            if (event.keyCode === 13) {
+                event.target.click(); // Trigger the click event
+            }
+        }
+
         const agregarOperador = document.getElementById("btnAgregarOperador");
-        agregarOperador.addEventListener("click", function(){
+        agregarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/AgregarOperador");
         });
-    });
-    /*document.addEventListener("DOMContentLoaded", function() {
-        const eliminarOperador = document.getElementById("btnEliminarOperador");
-        eliminarOperador.addEventListener("click", function(){
-            window.location.assign("/AdminOperadores/Operadores/EliminarOperador");
-        });
-    });*/
-    /*document.addEventListener("DOMContentLoaded", function() {
-        const actualizarOperador = document.getElementById("btnActualizarOperador");
-        actualizarOperador.addEventListener("click", function(){
-            window.location.assign("/AdminOperadores/Operadores/ActualizarOperador");
-        });
-    });*/
-    document.addEventListener("DOMContentLoaded", function() {
+        agregarOperador.addEventListener("keypress", handleButtonClick);
+
         const verHorariosOperadores = document.getElementById("btnVerHorariosOperadores");
-        verHorariosOperadores.addEventListener("click", function(){
+        verHorariosOperadores.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/VerHorariosOperadores");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function() {
+        verHorariosOperadores.addEventListener("keypress", handleButtonClick);
+
         const asignarSustitucion = document.getElementById("btnAsignarSustitucion");
-        asignarSustitucion.addEventListener("click", function(){
+        asignarSustitucion.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/AsignarSustitucion");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const consultarHorarios = document.getElementById("btnCerrar");
-        consultarHorarios.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const consultarHorarios = document.getElementById("btnCancelar");
-        consultarHorarios.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const consultarHorarios = document.getElementById("btnActualizar");
-        consultarHorarios.addEventListener("click", function () {
-           // alert("Actualizar")
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function() {
+        asignarSustitucion.addEventListener("keypress", handleButtonClick);
+
         const asignarHorario = document.getElementById("btnAsignarHorario");
-        asignarHorario.addEventListener("click", function() {
-            window.location.assign("/AdminOperadores/Operadores/AsignarHorario");
-        })
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const asignarHorario = document.getElementById("btnVisualizarOperadores");
         asignarHorario.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/AsignarHorario");
+        });
+        asignarHorario.addEventListener("keypress", handleButtonClick);
+
+        const visualizarOperadores = document.getElementById("btnVisualizarOperadores");
+        visualizarOperadores.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
+        });
+        visualizarOperadores.addEventListener("keypress", handleButtonClick);
+
+        const cancelar = document.getElementById("btnCancelar");
+        cancelar.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores")
         })
     });
 </script>
@@ -75,42 +58,39 @@
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
-            <li id="btnAgregarOperador">Agregar Operador</li>
-            <!--<li id="btnEliminarOperador">Eliminar Operador</li>-->
-            <!--<li id="btnActualizarOperador">Actualizar Datos Operador</li>-->
-            <li id="btnAsignarHorario">Asignar Horario</li>
-            <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
-            <li id="btnAsignarSustitucion">Asignar Sustitución</li>
-            <li id="btnVisualizarOperadores">Visualizar Operadores</li>
+            <li id="btnAgregarOperador" tabindex="10">Agregar Operador</li>
+            <li id="btnAsignarHorario" tabindex="11">Asignar Horario</li>
+            <li id="btnVerHorariosOperadores" tabindex="12">Visualizar Horarios Operadores</li>
+            <li id="btnAsignarSustitucion" tabindex="13">Asignar Sustitución</li>
+            <li id="btnVisualizarOperadores" tabindex="14">Visualizar Operadores</li>
         </ul>
     </div>
     <div class="xy-center">
         <div class="main-info-container">
-            <button class="close-button" id="btnCerrar">X</button>
 
-            <h1>Actualizar un operador</h1>
+            <h1 tabindex="15">Actualizar un operador</h1>
 
             <form asp-page-handler="Actualizar" method="post">
                 <div class="center-form input-container-margin" style="margin-top:50px">
                     <h3>Correo electrónico</h3>
-                    <input type="email" class="big-input" placeholder="Ingrese el nuevo correo del operador" name="email"/>
+                    <input tabindex="16" type="email" class="big-input" placeholder="Ingrese el nuevo correo del operador" name="email"/>
                 </div>
 
                 <div class="center-form input-container-margin">
                     <h3>Número telefónico</h3>
-                    <input type="number" class="big-input" placeholder="Ingrese el nuevo número telefónico del operador" name="cellphone"/>
+                    <input tabindex="17" type="number" class="big-input" placeholder="Ingrese el nuevo número telefónico del operador" name="cellphone"/>
                 </div>
 
                 <div class="center-form input-container-margin">
                     <h3>Número de carnet</h3>
-                    <input type="number" class="big-input" placeholder="Ingrese el número de carnet del operador a modificar" name="carnet" value="@ViewData["id"]" />
+                    <input tabindex="18" type="number" class="big-input" placeholder="Ingrese el número de carnet del operador a modificar" name="carnet" value="@ViewData["id"]" aria-label="Ingrese el número de carnet del operador"/>
                 </div>
 
                 <div class="parallel-container center-form">
-                    <button class="main-button" id="btnActualizar">
+                    <button class="main-button" id="btnActualizar" formmethod="post" tabindex="19">
                         Actualizar
                     </button>
-                    <button class="main-button" id="btnCancelar">
+                    <button class="main-button" id="btnCancelar" type="button" tabindex="20">
                         Cancelar
                     </button>
                 </div>
