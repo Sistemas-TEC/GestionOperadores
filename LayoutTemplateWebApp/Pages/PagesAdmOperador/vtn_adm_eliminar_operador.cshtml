@@ -9,18 +9,18 @@
             window.location.assign("/AdminOperadores/Operadores/AgregarOperador");
         });
     });
-    document.addEventListener("DOMContentLoaded", function () {
+    /*document.addEventListener("DOMContentLoaded", function () {
         const eliminarOperador = document.getElementById("btnEliminarOperador");
         eliminarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/EliminarOperador");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+    });*/
+    /*document.addEventListener("DOMContentLoaded", function () {
         const actualizarOperador = document.getElementById("btnActualizarOperador");
         actualizarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/ActualizarOperador");
         });
-    });
+    });*/
     document.addEventListener("DOMContentLoaded", function () {
         const verHorariosOperadores = document.getElementById("btnVerHorariosOperadores");
         verHorariosOperadores.addEventListener("click", function () {
@@ -76,8 +76,8 @@
     <div class="sidebar-container">
         <ul>
             <li id="btnAgregarOperador">Agregar Operador</li>
-            <li id="btnEliminarOperador">Eliminar Operador</li>
-            <li id="btnActualizarOperador">Actualizar Datos Operador</li>
+            <!--<li id="btnEliminarOperador">Eliminar Operador</li>-->
+            <!--<li id="btnActualizarOperador">Actualizar Datos Operador</li>-->
             <li id="btnAsignarHorario">Asignar Horario</li>
             <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
             <li id="btnAsignarSustitucion">Asignar Sustitución</li>
@@ -110,10 +110,11 @@
 </div>
 
 <style>
-    .xy-center{
+    .xy-center {
         height: 600px;
     }
-    .main-info-container{
+
+    .main-info-container {
         height: 360px;
     }
 </style>

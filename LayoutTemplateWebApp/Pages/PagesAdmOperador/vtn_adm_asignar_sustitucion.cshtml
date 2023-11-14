@@ -4,99 +4,86 @@
 }
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        function handleButtonClick(event) {
+            // Check if the key pressed is the "Enter" key (key code 13)
+            if (event.keyCode === 13) {
+                event.target.click(); // Trigger the click event
+            }
+        }
+
         const agregarOperador = document.getElementById("btnAgregarOperador");
         agregarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/AgregarOperador");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const eliminarOperador = document.getElementById("btnEliminarOperador");
-        eliminarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Operadores/EliminarOperador");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const actualizarOperador = document.getElementById("btnActualizarOperador");
-        actualizarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Operadores/ActualizarOperador");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const verHorariosHoperadores = document.getElementById("btnAgregarOperador");
+        agregarOperador.addEventListener("keypress", handleButtonClick);
+
+        const verHorariosOperadores = document.getElementById("btnVerHorariosOperadores");
         verHorariosOperadores.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/VerHorariosOperadores");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+        verHorariosOperadores.addEventListener("keypress", handleButtonClick);
+
         const asignarSustitucion = document.getElementById("btnAsignarSustitucion");
         asignarSustitucion.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/AsignarSustitucion");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+        asignarSustitucion.addEventListener("keypress", handleButtonClick);
+
         const asignarHorario = document.getElementById("btnAsignarHorario");
         asignarHorario.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/AsignarHorario");
-        })
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const asignarHorario = document.getElementById("btnVerHorariosOperadores");
-        asignarHorario.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Operadores/VerHorariosOperadores");
-        })
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const asignarHorario = document.getElementById("btnCerrar");
-        asignarHorario.addEventListener("click", function () {
-            window.location.assign("/admOperadores-Operadores");
-        })
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const asignarHorario = document.getElementById("btnCancelar");
-        asignarHorario.addEventListener("click", function () {
-            window.location.assign("/admOperadores-Operadores");
-        })
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const asignarHorario = document.getElementById("btnVisualizarOperadores");
-        asignarHorario.addEventListener("click", function () {
+        });
+        asignarHorario.addEventListener("keypress", handleButtonClick);
+
+        const visualizarOperadores = document.getElementById("btnVisualizarOperadores");
+        visualizarOperadores.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
+        });
+        visualizarOperadores.addEventListener("keypress", handleButtonClick);
+
+        const cancelar = document.getElementById("btnCancelar");
+        cancelar.addEventListener("click", function () {
+            window.location.assign("/admOperadores-Operadores")
         })
     });
 </script>
 
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
+
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
-            <li id="btnAgregarOperador">Agregar Operador</li>
-            <li id="btnEliminarOperador">Eliminar Operador</li>
-            <li id="btnActualizarOperador">Actualizar Datos Operador</li>
-            <li id="btnAsignarHorario">Asignar Horario</li>
-            <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
-            <li id="btnAsignarSustitucion">Asignar Sustitución</li>
-            <li id="btnVisualizarOperadores">Visualizar Operadores</li>
+            <li id="btnAgregarOperador" tabindex="10">Agregar Operador</li>
+            <li id="btnAsignarHorario" tabindex="11">Asignar Horario</li>
+            <li id="btnVerHorariosOperadores" tabindex="12">Visualizar Horarios Operadores</li>
+            <li id="btnAsignarSustitucion" tabindex="13">Asignar Sustitución</li>
+            <li id="btnVisualizarOperadores" tabindex="14">Visualizar Operadores</li>
         </ul>
     </div>
     <div class="xy-center">
         <div class="main-info-container">
-            <button class="close-button" id="btnCerrar">X</button>
 
-            <h1>Asignar una sustitución a un operador</h1>
+            <h1 tabindex="15">Asignar una sustitución a un operador</h1>
 
             <form asp-page-handler="AsignarSustitucion" method="post">
                 <div class="center-form input-container-margin" style="margin-top:50px">
                     <h3>Número de carnet del operador</h3>
-                    <input type="number" class="big-input" name="carnet"/>
+                    <input tabindex="16" type="number" class="big-input" name="carnet" aria-label="Inserte el número de carnet"/>
                 </div>
 
                 <div class="center-form parallel-container">
                     <div class="small-input">
                         <h3>Día laboral</h3>
-                        <input type="date" name="fecha"/>
+                        <input tabindex="17" type="date" name="fecha" aria-label="Inserte el día de la sustitución"/>
                     </div>
                     <div class="small-input">
                         <h3>Oficina de trabajo</h3>
-                        <select name="oficina" id="oficina">
+                        <select tabindex="18" name="oficina" id="oficina" aria-label="Selecciona la oficina en la va a trabajar">
                             <option value="B3-1">B3-1</option>
                             <option value="TM">TM</option>
                             <option value="B6-1">B6-1</option>
@@ -108,19 +95,19 @@
                 <div class="center-form parallel-container">
                     <div class="small-input">
                         <h3>Hora de entrada</h3>
-                        <input type="time" name="entrada"/>
+                        <input tabindex="19" type="time" name="entrada" aria-label="Inserte la hora de entrada"/>
                     </div>
                     <div class="small-input">
                         <h3>Hora de salida</h3>
-                        <input type="time" name="salida"/>
+                        <input tabindex="20" type="time" name="salida" aria-label="Inserte la hora de salida" />
                     </div>
                 </div>
 
                 <div class="parallel-container center-form">
-                    <button class="main-button" id="btnAsignar">
+                    <button class="main-button" id="btnAsignar" formmethod="post" tabindex="21">
                         Asignar
                     </button>
-                    <button class="main-button" id="btnCancelar">
+                    <button type="button" class="main-button" id="btnCancelar" tabindex="22">
                         Cancelar
                     </button>
                 </div>

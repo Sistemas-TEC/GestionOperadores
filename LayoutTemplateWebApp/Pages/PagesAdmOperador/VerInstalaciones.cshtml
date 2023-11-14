@@ -1,0 +1,112 @@
+﻿
+@page "/AdminOperadores/Instalaciones/VisualizarInstalaciones"
+@model LayoutTemplateWebApp.Pages.PagesAdmOperador.VerInstalacionesModel
+@{
+}
+
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function handleButtonClick(event) {
+            // Check if the key pressed is the "Enter" key (key code 13)
+            if (event.keyCode === 13) {
+                event.target.click(); // Trigger the click event
+            }
+        }
+        const agregarOperador = document.getElementById("btnPrestarInstalacion");
+        agregarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Instalaciones/PrestarInstalacion");
+        });
+        agregarOperador.addEventListener("keypress", handleButtonClick);
+
+        const eliminarOperador = document.getElementById("btnLiberarInstalacion");
+        eliminarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Instalaciones/LiberarInstalacion");
+        });
+        eliminarOperador.addEventListener("keypress", handleButtonClick);
+
+        const actualizarOperador = document.getElementById("btnConsultarHorariosInstalaciones");
+        actualizarOperador.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Instalaciones/HorariosInstalaciones");
+        });
+        actualizarOperador.addEventListener("keypress", handleButtonClick);
+
+
+        const actualizarOperador2 = document.getElementById("btnConsultarInstalaciones");
+        actualizarOperador2.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Instalaciones/VisualizarInstalaciones");
+        });
+        actualizarOperador.addEventListener("keypress", handleButtonClick);
+    });
+</script>
+<style>
+    .all-container{
+        height:auto;
+    }
+    .xy-center{
+        padding-top: 30px;
+        height:auto;
+    }
+    .main-info-container{
+        height: auto;
+    }
+    .grid-container{
+        display: grid;
+        grid-template-columns: 160px 320px 220px 280px;*/
+    }
+    .grid-item{
+        border: 1px solid var(--color-font-sidebar);
+        padding: 10px;
+        font-family: Roboto;
+        font-size: var(--font-size-sidebar-li);
+    }
+    .main-button{
+        min-width: 70%;
+    }
+</style>
+
+<div class="all-container">
+    <div class="sidebar-container">
+        <ul>
+            <li id="btnPrestarInstalacion" tabindex="10">Prestar Instalación</li>
+            <li id="btnLiberarInstalacion" tabindex="11">Liberar Instalación</li>
+            <li id="btnConsultarHorariosInstalaciones" tabindex="12">Consultar Horarios Instalaciones</li>
+            <li id="btnConsultarInstalaciones" tabindex="13">Consultar Instalaciones</li>
+        </ul>
+    </div>
+    <div class="xy-center">
+        <div class="main-info-container">
+           
+            <h1 tabindex="15">Visualizar Instalaciones prestadas</h1>
+
+            <div class="grid-container">
+                <div class="grid-item" tabindex="17">Id facility</div>
+                <div class="grid-item" tabindex="18">Fecha de reserva</div>
+                <div class="grid-item" tabindex="20">Hora inicio</div>
+                <div class="grid-item" tabindex="21">Hora Fin</div>
+            
+            </div>
+
+            @if(Model.Results != null && Model.Results.Any())
+                {
+                    @foreach (var item in Model.Results)
+                    {
+                    <div class="grid-container" tabindex="22" aria-label="@item.idFacilities @item.date"  @item.beginningHour @item.finishingHour>
+                            <div class="grid-item">@item.idFacilities</div>
+                            <div class="grid-item">@item.date </div>
+                            
+                            <div class="grid-item">@item.beginningHour </div>
+                            <div class="grid-item">@item.finishingHour</div>
+                        </div>
+                    }
+                }
+
+        </div>
+    </div>
+</div>

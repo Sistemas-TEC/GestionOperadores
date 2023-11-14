@@ -33,7 +33,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 {
                     var result = context.Database.ExecuteSqlRaw("EXEC CreateOperator {0}, {1}, {2}", id, cellphone, email);
                 }
-                TempData["SuccessMessage"] = "Operador agregado exitosamente";  // Corrección de mensaje
+                TempData["ErrorMessage"] = "Operador agregado exitosamente";  // Corrección de mensaje
 
             }
             catch (Exception ex)

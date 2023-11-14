@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using LayoutTemplateWebApp.Pages.PagesOperador;
 
 namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
 {
@@ -31,6 +32,45 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 TempData["ErrorMessage"] = "Error al traer los datos: " + ex.Message;
             }
 
+        }
+        public async Task OnPostEliminarEquipo()
+        {
+            try
+            {
+                int idEquipo = Convert.ToInt32(Request.Form["idEquipo"]);
+                using (var context = _gestionOperatorsContext)
+                {
+                    var result = context.Database.ExecuteSqlRaw("EXEC DeleteEquipment {0}", idEquipo);
+                    TempData["ErrorMessage"] = "Equipo eliminado con exito";
+                    Page();
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al eliminar el equipo. Este se encuentra con horarios asignados.";
+            }
+        }
+        public async Task OnPostLiberarEquipo()
+        {
+            try
+            {
+                int idEquipment = Convert.ToInt32(Request.Form["idEquipment"]);
+                bool estado = true;
+                using (var context = _gestionOperatorsContext)
+                {
+                    var result = context.Database.ExecuteSqlRaw("EXEC sp_UpdateEquipmentAvailability {0}, {1}", idEquipment, estado);
+                }
+                TempData["ErrorMessage"] = "Equipo liberado con exito";
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "Error al liberar el equipo. Este se encuentra con horarios asignados.";
+            }
+
+            Page();
         }
     }
 }

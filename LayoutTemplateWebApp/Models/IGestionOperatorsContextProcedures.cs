@@ -47,6 +47,8 @@ namespace LayoutTemplateWebApp.Models
         Task<List<ReadFacilityByIDResult>> ReadFacilityByIDAsync(int? idFacilities, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<ReadLaboratoryByIDResult>> ReadLaboratoryByIDAsync(string idLaboratory, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<ReadOperatorResult>> ReadOperatorAsync(int? idOperator, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<SelectAllFromSchedulexFacilityResult>> SelectAllFromSchedulexFacilityAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> sp_PrestarEquipoAsync(int? idUser, int? idEquipment, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> sp_UpdateEquipmentAvailabilityAsync(int? equipmentID, bool? newAvailability, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> UpdateAdmOperatorAsync(int? idAdmOperator, string cellphone, string email, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> UpdateClassroomAsync(string idClassroom, int? idFacilities, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);

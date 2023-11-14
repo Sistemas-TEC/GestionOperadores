@@ -30,7 +30,10 @@ public partial class GestionOperatorsContext : DbContext
     public virtual DbSet<SchedulexFacility> SchedulexFacilities { get; set; }
 
     public virtual DbSet<SchedulexOperator> SchedulexOperators { get; set; }
+
     public virtual DbSet<GetOperatorsForFacilityOnDateResult> GetOperatorsForFacilityOnDateResults { get; set; }
+
+    public virtual DbSet<GetScheduleForFacilityOnDateResult> GetScheduleForFacilityOnDateResults { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

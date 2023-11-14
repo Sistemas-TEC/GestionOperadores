@@ -5,63 +5,57 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        function handleButtonClick(event) {
+            // Check if the key pressed is the "Enter" key (key code 13)
+            if (event.keyCode === 13) {
+                event.target.click(); // Trigger the click event
+            }
+        }
+
         const agregarOperador = document.getElementById("btnAgregarOperador");
         agregarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/AgregarOperador");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const eliminarOperador = document.getElementById("btnEliminarOperador");
-        eliminarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Operadores/EliminarOperador");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const actualizarOperador = document.getElementById("btnActualizarOperador");
-        actualizarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Operadores/ActualizarOperador");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+        agregarOperador.addEventListener("keypress", handleButtonClick);
+
         const verHorariosOperadores = document.getElementById("btnVerHorariosOperadores");
         verHorariosOperadores.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/VerHorariosOperadores");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+        verHorariosOperadores.addEventListener("keypress", handleButtonClick);
+
         const asignarSustitucion = document.getElementById("btnAsignarSustitucion");
         asignarSustitucion.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/AsignarSustitucion");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function() {
+        asignarSustitucion.addEventListener("keypress", handleButtonClick);
+
         const asignarHorario = document.getElementById("btnAsignarHorario");
-        asignarHorario.addEventListener("click", function() {
-            window.location.assign("/AdminOperadores/Operadores/AsignarHorario");
-        })
-    })
-    document.addEventListener("DOMContentLoaded", function () {
-        const asignarHorario = document.getElementById("btnVisualizarOperadores");
         asignarHorario.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Operadores/AsignarHorario");
+        });
+        asignarHorario.addEventListener("keypress", handleButtonClick);
+
+        const visualizarOperadores = document.getElementById("btnVisualizarOperadores");
+        visualizarOperadores.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Operadores/VisualizarOperadores");
-        })
+        });
+        visualizarOperadores.addEventListener("keypress", handleButtonClick);
     });
 </script>
 
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
-            <li id="btnAgregarOperador">Agregar Operador</li>
-            <li id="btnEliminarOperador">Eliminar Operador</li>
-            <li id="btnActualizarOperador">Actualizar Datos Operador</li>
-            <li id="btnAsignarHorario">Asignar Horario</li>
-            <li id="btnVerHorariosOperadores">Visualizar Horarios Operadores</li>
-            <li id="btnAsignarSustitucion">Asignar Sustitución</li>
-            <li id="btnVisualizarOperadores">Visualizar Operadores</li>
+            <li id="btnAgregarOperador" tabindex="10">Agregar Operador</li>
+            <li id="btnAsignarHorario" tabindex="11">Asignar Horario</li>
+            <li id="btnVerHorariosOperadores" tabindex="12">Visualizar Horarios Operadores</li>
+            <li id="btnAsignarSustitucion" tabindex="13">Asignar Sustitución</li>
+            <li id="btnVisualizarOperadores" tabindex="14">Visualizar Operadores</li>
         </ul>
     </div>
     <div class="xy-center">
-        <h1>
+        <h1 tabindex="9">
             Bienvenido a la sección de administrador de operadores<br/>
             Seleccione la funcionalidad que desee utilizar en el menú de la izquierda
         </h1>

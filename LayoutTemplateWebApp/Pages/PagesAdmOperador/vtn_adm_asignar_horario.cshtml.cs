@@ -33,6 +33,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 using (var context = _gestionOperatorsContext)
                 {
                     var result = context.Database.ExecuteSqlRaw("EXEC CreateScheduleXOperator {0}, {1}, {2}, {3}, {4}, {5}", fecha, entradaTimeSpan, salidaTimeSpan, carnet, idFacility, cantidad);
+                    TempData["ErrorMessage"] = "Horario asignado con exito";
                 }
             }catch(Exception ex)
             {

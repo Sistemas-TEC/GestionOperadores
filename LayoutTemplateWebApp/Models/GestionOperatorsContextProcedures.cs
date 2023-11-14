@@ -50,6 +50,7 @@ namespace LayoutTemplateWebApp.Models
             modelBuilder.Entity<ReadFacilityByIDResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<ReadLaboratoryByIDResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<ReadOperatorResult>().HasNoKey().ToView(null);
+            modelBuilder.Entity<SelectAllFromSchedulexFacilityResult>().HasNoKey().ToView(null);
         }
     }
 
@@ -1176,6 +1177,58 @@ namespace LayoutTemplateWebApp.Models
                 parameterreturnValue,
             };
             var _ = await _context.SqlQueryAsync<ReadOperatorResult>("EXEC @returnValue = [dbo].[ReadOperator] @idOperator", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<List<SelectAllFromSchedulexFacilityResult>> SelectAllFromSchedulexFacilityAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<SelectAllFromSchedulexFacilityResult>("EXEC @returnValue = [dbo].[SelectAllFromSchedulexFacility]", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<int> sp_PrestarEquipoAsync(int? idUser, int? idEquipment, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "idUser",
+                    Value = idUser ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "idEquipment",
+                    Value = idEquipment ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[sp_PrestarEquipo] @idUser, @idEquipment", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 

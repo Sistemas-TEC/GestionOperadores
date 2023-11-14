@@ -2,7 +2,12 @@
 @model LayoutTemplateWebApp.Pages.PagesOperador.vtn_operador_liberar_instalacionModel
 @{
 }
-
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const consultarHorarios = document.getElementById("btnPrestarInstalacion");
@@ -48,56 +53,58 @@
         <div class="main-info-container">
             <button class="close-button" id="btnCerrar">X</button>
             <h1>Liberar una instalación</h1>
-            
-            <div class="center-form">
-                <div class="parallel-container">
-                    <div class="small-input">
-                        <h3>Fecha</h3>
-                        <input type="date" />
-                    </div>
-                    <div class="small-input">
-                        <h3>Instalación</h3>
-                        <select name="instalaciones" id="instalaciones">
-                            <option value="B3-01">B3-01</option>
-                            <option value="B3-03">B3-03(AZUL)</option>
-                            <option value="B3-04">B3-04(VERDE)</option>
-                            <option value="B3-05">B3-05(ROJO)</option>
-                            <option value="B3-06">B3-06</option>
-                            <option value="B3-07">B3-07</option>
-                            <option value="B3-08">B3-08</option>
-                            <option value="B3-10">B3-10(TM)</option>
-                            <option value="B6-01">B6-01</option>
-                            <option value="B6-02">B6-02</option>
-                            <option value="B6-03">B6-03</option>
-                            <option value="B6-04">B6-04(LAB)</option>
-                            <option value="B6-05">B6-05(LAB)</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            
-
-            <div class="center-form" style="margin-top:20px;">
-                <div class="parallel-container">
-                    <div class="small-input">
-                        <h3>Hora de inicio</h3>
-                        <input type="time" />
-                    </div>
-                    <div class="small-input">
-                        <h3>Hora de fin</h3>
-                        <input type="time"/>
+            <form asp-page-handler="liberar" method="post">
+                <div class="center-form">
+                    <div class="parallel-container">
+                        <div class="small-input">
+                            <h3>Fecha</h3>
+                            <input type="date" name="fecha"/>
+                        </div>
+                        <div class="small-input">
+                            <h3>Instalación</h3>
+                            <select name="instalaciones" id="instalaciones">
+                                <option value="B3-01">B3-01</option>
+                                <option value="B3-03">B3-03(AZUL)</option>
+                                <option value="B3-04">B3-04(VERDE)</option>
+                                <option value="B3-05">B3-05(ROJO)</option>
+                                <option value="B3-06">B3-06</option>
+                                <option value="B3-07">B3-07</option>
+                                <option value="B3-08">B3-08</option>
+                                <option value="B3-10">B3-10(TM)</option>
+                                <option value="B6-01">B6-01</option>
+                                <option value="B6-02">B6-02</option>
+                                <option value="B6-03">B6-03</option>
+                                <option value="B6-04">B6-04(LAB)</option>
+                                <option value="B6-05">B6-05(LAB)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="parallel-container center-form">
-                <button class="main-button">
-                    Liberar
-                </button>
-                <button class="main-button" id="btnCancelarOperador">
-                    Cancelar
-                </button>
-            </div>
+
+                <div class="center-form" style="margin-top:20px;">
+                    <div class="parallel-container">
+                        <div class="small-input">
+                            <h3>Hora de inicio</h3>
+                            <input type="time" name="entrada"/>
+                        </div>
+                        <div class="small-input">
+                            <h3>Hora de fin</h3>
+                            <input type="time" name="salida"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="parallel-container center-form">
+                    <button class="main-button">
+                        Liberar
+                    </button>
+                    <button class="main-button" id="btnCancelarOperador">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+            
         </div>
     </div>
 </div>

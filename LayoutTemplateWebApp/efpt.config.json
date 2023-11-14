@@ -192,6 +192,14 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[SelectAllFromSchedulexFacility]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[sp_PrestarEquipo]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[sp_UpdateEquipmentAvailability]",
          "ObjectType": 1
       },

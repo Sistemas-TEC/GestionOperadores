@@ -2,108 +2,117 @@
 @model LayoutTemplateWebApp.Pages.PagesAdmOperador.vtn_admin_prestar_instalacionModel
 @{
 }
-
+@if (TempData["ErrorMessage"] != null)
+{
+    <script>
+        alert("@TempData["ErrorMessage"]");
+    </script>
+}
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        function handleButtonClick(event) {
+            // Check if the key pressed is the "Enter" key (key code 13)
+            if (event.keyCode === 13) {
+                event.target.click(); // Trigger the click event
+            }
+        }
         const agregarOperador = document.getElementById("btnPrestarInstalacion");
         agregarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Instalaciones/PrestarInstalacion");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+        agregarOperador.addEventListener("keypress", handleButtonClick);
+
         const eliminarOperador = document.getElementById("btnLiberarInstalacion");
         eliminarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Instalaciones/LiberarInstalacion");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
+        eliminarOperador.addEventListener("keypress", handleButtonClick);
+
         const actualizarOperador = document.getElementById("btnConsultarHorariosInstalaciones");
         actualizarOperador.addEventListener("click", function () {
             window.location.assign("/AdminOperadores/Instalaciones/HorariosInstalaciones");
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const cerrar = document.getElementById("btnCerrar");
-        cerrar.addEventListener("click", function () {
-            window.location.assign("/admOperadores-Instalaciones/");
-        })
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const cerrarPestanaOperadores = document.getElementById("btnCancelarOperador");
-        cerrarPestanaOperadores.addEventListener("click", function () {
-            window.location.assign("/admOperadores-Instalaciones")
+        actualizarOperador.addEventListener("keypress", handleButtonClick);
+
+
+        const actualizarOperador2 = document.getElementById("btnConsultarInstalaciones");
+        actualizarOperador2.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Instalaciones/VisualizarInstalaciones");
         });
+        actualizarOperador.addEventListener("keypress", handleButtonClick);
     });
 </script>
 
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
-            <li id="btnPrestarInstalacion">Prestar Instalación</li>
-            <li id="btnLiberarInstalacion">Liberar Instalación</li>
-            <li id="btnConsultarHorariosInstalaciones">Consultar Horarios Instalaciones</li>            
+            <li id="btnPrestarInstalacion" tabindex="10">Prestar Instalación</li>
+            <li id="btnLiberarInstalacion" tabindex="11">Liberar Instalación</li>
+            <li id="btnConsultarHorariosInstalaciones" tabindex="12">Consultar Horarios Instalaciones</li>
+            <li id="btnConsultarInstalaciones" tabindex="13">Consultar Instalaciones</li>
         </ul>
+
+
     </div>
     <div class="xy-center">
         <div class="main-info-container">
-            <button class="close-button" id="btnCerrar">X</button>
-            <h1>Prestar una instalación</h1>
-            <div class="center-form">
-                <h3>Actividad</h3>
-                <input type="text" placeholder="Describe la actividad a realizar" class="big-input" />
-            </div>
-            <div class="center-form">
+            
+            <h1 tabindex="13">Prestar una instalación</h1>
 
-                <div class="parallel-container" style="margin-top:20px;">
-                    <div class="small-input">
-                        <h3>Fecha</h3>
-                        <input type="date" />
+            <form asp-page-handler="PrestarInstalacion" method="post">
+                <div class="center-form">
+                    <h3>Actividad</h3>
+                    <input type="text" placeholder="Describe la actividad a realizar" class="big-input" name="actividad" max="255" tabindex="14"/>
+                </div>
+                <div class="center-form">
+
+                    <div class="parallel-container" style="margin-top:20px;">
+                        <div class="small-input">
+                            <h3>Fecha</h3>
+                            <input type="date" name="fecha" tabindex="15" aria-label="Inserta la fecha para prestar la instalación"/>
+                        </div>
+                        <div class="small-input">
+                            <h3>Instalación</h3>
+                            <select name="instalaciones" id="instalaciones" tabindex="16" aria-label="Seleccione la instalación a prestar">
+                                <option value="B3-01">B3-01</option>
+                                <option value="B3-03">B3-03(AZUL)</option>
+                                <option value="B3-04">B3-04(VERDE)</option>
+                                <option value="B3-05">B3-05(ROJO)</option>
+                                <option value="B3-06">B3-06</option>
+                                <option value="B3-07">B3-07</option>
+                                <option value="B3-08">B3-08</option>
+                                <option value="B3-10">B3-10(TM)</option>
+                                <option value="B6-01">B6-01</option>
+                                <option value="B6-02">B6-02</option>
+                                <option value="B6-03">B6-03</option>
+                                <option value="B6-04">B6-04(LAB)</option>
+                                <option value="B6-05">B6-05(LAB)</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="small-input">
-                        <h3>Instalación</h3>
-                        <select name="instalaciones" id="instalaciones">
-                            <option value="B3-01">B3-01</option>
-                            <option value="B3-03">B3-03(AZUL)</option>
-                            <option value="B3-04">B3-04(VERDE)</option>
-                            <option value="B3-05">B3-05(ROJO)</option>
-                            <option value="B3-06">B3-06</option>
-                            <option value="B3-07">B3-07</option>
-                            <option value="B3-08">B3-08</option>
-                            <option value="B3-10">B3-10(TM)</option>
-                            <option value="B6-01">B6-01</option>
-                            <option value="B6-02">B6-02</option>
-                            <option value="B6-03">B6-03</option>
-                            <option value="B6-04">B6-04(LAB)</option>
-                            <option value="B6-05">B6-05(LAB)</option>
-                        </select>
+
+                    <div class="parallel-container" style="margin-top:20px;">
+                        <div class="small-input">
+                            <h3>Hora inicial</h3>
+                            <input type="time" name="entrada" tabindex="17" aria-label="Inserte la hora inicial del préstamo"/>
+                        </div>
+                        <div class="small-input">
+                            <h3>Hora final</h3>
+                            <input type="time" name="salida" tabindex="18" aria-label="Inserte la hora de finalización del préstamo"/>
+                        </div>
                     </div>
                 </div>
 
-                <div class="parallel-container" style="margin-top:20px;">
-                    <div class="small-input">
-                        <h3>Hora de entrada</h3>
-                        <input type="time" />
-                    </div>
-                    <div class="small-input">
-                        <h3>Hora de salida</h3>
-                        <input type="time" />
-                    </div>
+                <div class="parallel-container center-form">
+                    <button class="main-button" type="submit" tabindex="19">
+                        Prestar
+                    </button>
+                    <button class="main-button" id="btnCancelarOperador" type="button" tabindex="20">
+                        Cancelar
+                    </button>
                 </div>
-            </div>
-
-            <div class="center-form" style="margin-top:20px;">
-                <h3>Identificación del responsable</h3>
-                <input type="text" placeholder="Inserte la identificación del responsable" class="big-input" />
-            </div>
-
-            <div class="parallel-container center-form">
-                <button class="main-button">
-                    Prestar
-                </button>
-                <button class="main-button" id="btnCancelarOperador">
-                    Cancelar
-                </button>
-            </div>
+            </form>
+            
         </div>
     </div>
 </div>

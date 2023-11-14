@@ -5,56 +5,42 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const agregarOperador = document.getElementById("btnAgregarEquipo");
-        agregarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Equipos/AgregarEquipo");
+        function handleButtonClick(event) {
+            // Check if the key pressed is the "Enter" key (key code 13)
+            if (event.keyCode === 13) {
+                event.target.click(); // Trigger the click event
+            }
+        }
+        const agregarEquipo = document.getElementById("btnAgregarEquipo");
+        agregarEquipo.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/AgregarEquipo")
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const agregarOperador = document.getElementById("btnEliminarEquipo");
-        agregarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Equipos/EliminarEquipo");
+        agregarEquipo.addEventListener("keypress", handleButtonClick);
+
+        const listadoEquipos = document.getElementById("btnEliminarEquipo");
+        listadoEquipos.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/ListadoEquipo")
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const agregarOperador = document.getElementById("btnPrestarEquipo");
-        agregarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Equipos/PrestarEquipo");
+        listadoEquipos.addEventListener("keypress", handleButtonClick);
+        
+        const reportarEquipo = document.getElementById("btnReportarEquipo");
+        reportarEquipo.addEventListener("click", function () {
+            window.location.assign("/AdminOperadores/Equipos/ReportarEquipo")
         });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const agregarOperador = document.getElementById("btnDevolverEquipo");
-        agregarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Equipos/DevolverEquipo");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const agregarOperador = document.getElementById("btnReportarEquipo");
-        agregarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Equipos/ReportarEquipo");
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function () {
-        const agregarOperador = document.getElementById("btnEquiposPrestados");
-        agregarOperador.addEventListener("click", function () {
-            window.location.assign("/AdminOperadores/Equipos/EquiposPrestados");
-        });
+        reportarEquipo.addEventListener("keypress", handleButtonClick);
     });
 </script>
 
 <div class="all-container">
     <div class="sidebar-container">
         <ul>
-            <li id="btnAgregarEquipo">Agregar Equipo</li>
-            <li id="btnEliminarEquipo">Eliminar Equipo</li>
-            <li id="btnPrestarEquipo">Prestar Equipo</li>
-            <li id="btnDevolverEquipo">Devolver Equipo</li>
-            <li id="btnReportarEquipo">Reportar Equipo Dañado</li>
-            <li id="btnEquiposPrestados">Equipos Prestados Actualmente</li>
+            <li id="btnAgregarEquipo" tabindex="10">Agregar Equipo</li>
+            <li id="btnEliminarEquipo" tabindex="11">Listado de Equipos</li>
+            <li id="btnReportarEquipo" tabindex="12">Reportar Equipo Dañado</li>
         </ul>
     </div>
     <div class="xy-center">
-        <h1>
+        <h1 tabindex="9">
             Bienvenido a la sección de control de equipo<br/>
             Seleccione la funcionalidad que desee utilizar en el menú de la izquierda
         </h1>

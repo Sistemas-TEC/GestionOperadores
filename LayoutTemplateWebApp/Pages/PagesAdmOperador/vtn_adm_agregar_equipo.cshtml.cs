@@ -29,14 +29,14 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
                 bool availability = Convert.ToBoolean(Request.Form["disponibilidadEquipo"]);
                 string name = Request.Form["nameEquipo"];
                 string description = Request.Form["descripcionInput"];
-                int idUser = Convert.ToInt32(Request.Form["idUsuario"]);
+                int idUser = 0;
                 string condition = Request.Form["CondicionEquipo"];
 
                 using (var context = _gestionOperatorsContext)
                 {
                     var result = context.Database.ExecuteSqlRaw("EXEC CreateEquipment {0}, {1}, {2}, {3}, {4}, {5}", idEquipment, availability, name, description, idUser, condition);
                 }
-                TempData["SuccessMessage"] = "Equipo agregado exitosamente";  // Corrección de mensaje
+                TempData["ErrorMessage"] = "Equipo agregado exitosamente";  // Correcciï¿½n de mensaje
 
             }
             catch (Exception ex)
@@ -47,3 +47,4 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
         }
     }
 }
+

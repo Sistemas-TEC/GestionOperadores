@@ -14,7 +14,7 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
 
         public int SelectedEquipmentId { get; set; }
         public List<Equipment> equiposPrestados { get; set; }
-        
+
         public vtn_adm_prestar_equipoModel(GestionOperatorsContext gestionOperatorsContext)
         {
             _gestionOperatorsContext = gestionOperatorsContext;
@@ -38,8 +38,8 @@ namespace LayoutTemplateWebApp.Pages.PagesAdmOperador
         {
             try
             {
-             
-        
+
+
                 int idEquipo = Int32.Parse(Request.Form["SelectedEquipmentId"]);  // Cambio de nombre
                 bool estado = false;
 
